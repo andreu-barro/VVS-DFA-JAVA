@@ -1,5 +1,5 @@
 # VVS-DFA-JAVA
-[![Build Status](https://travis-ci.org/srjavimoure/VVS-DFA-C.svg?branch=master)](https://travis-ci.org/srjavimoure/VVS-DFA-C)
+[![Build Status](https://travis-ci.org/andreu-barro/VVS-DFA-JAVA.svg?branch=master)](https://travis-ci.org/andreu-barro/VVS-DFA-JAVA)
 
 Práctica para la asignatura de Validación y Verificación Software.
 
