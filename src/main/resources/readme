@@ -1,0 +1,33 @@
+# DLP - Practice 1
+# Java Readme
+#
+# Xoan Andreu Barro Torres (andreu.barro)
+# Manoel Anton Folgueira Hernandez (manoel.folgueira)
+# Uxia Ponte Villaverde (uxia.ponte.villaverde)
+
+
+How to compile & run the program:
+
+-- 1. $ make
+This compiles the source code.
+
+-- 2. $ make run dfa=<file path | DFA string codification>
+This runs the program with the input value.
+
+[EXAMPLES]
+
+# File input (DFA codification inside)
+make run dfa=disconnected_dfa.dfa
+
+Note that *example.dfa* file is included in the src folder and loaded
+by default when running (use dfa parameter to specify your own):
+$ make run
+
+# String input (be careful with quotation)
+$ make run dfa="\"q0 q1 q2 q3; a b; q0; q0 q2; \
+  q0 q0 a; q0 q1 b; q1 q1 a; q1 q0 b; q2 q2 a; \
+  q2 q3 b; q3 q3 a; q3 q2 b;\""
+
+This DFA is the one given in the example.dfa file.
+
+-- 3. Once all tests are done, don't forget to make clean!
