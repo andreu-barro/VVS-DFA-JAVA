@@ -58,6 +58,8 @@ public void testAdd2() {
 public void testAdd3() {
     ArrayList lista = new ArrayList();
     lista.add("a");
+    lista.add("b");
+    
     GenList genList = new GenList(2);
     genList.add("a");
 
@@ -79,6 +81,7 @@ public void testAdd4() throws NullPointerException {
 public void testRemove() {
     GenList genList = new GenList();
     genList.add("a");
+    
     boolean pasa = true;
     try {
     genList.remove(-1);
@@ -86,7 +89,7 @@ public void testRemove() {
     catch (Exception e) {
         pasa=false;
     }
-    assertTrue(!pasa);
+    assertFalse(pasa);
     
     pasa = true;
     try {
@@ -95,7 +98,7 @@ public void testRemove() {
     catch (Exception e) {
         pasa=false;
     }
-    assertTrue(!pasa);
+    assertFalse(pasa);
 }
 
 // lista = null

@@ -45,11 +45,18 @@ public class DFAMocksTest {
     
     // dfa null
     @Test
-    public void getConnectedDFA() throws NullPointerException {
+    public void getConnectedDFA() {
         State state = stateMock;
         GenList genList = genListMock;
         
         DFA dfa = null;
+        boolean pasa = true;
+        try {
         dfa.getConnectedDFA();
+        }
+        catch (Exception ex) {
+            pasa=false;
+        }
+        assertFalse(pasa);
     }
 }

@@ -4,7 +4,7 @@
 Práctica para la asignatura de Validación y Verificación Software.
 
 Integrantes:  
--Francisco Javier López Moure  
+-Francisco Javier Moure López  
 -Emma Oitaven Carracedo  
 -Xoán Andreu Barro Torres  
 
