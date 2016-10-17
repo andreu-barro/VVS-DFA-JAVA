@@ -66,36 +66,54 @@ SALIDA ESPERADA: Lista vacía de tamaño mínimo predeterminado
 
 -----------------------------------------------------------------
 
+ID: JAVA-GLIST-CONST-02
+FUNCIÓN: GenList
+TIPO: Particiones equivalentes
+CONTEXTO: n/a
+ENTRADA PROPORCIONADA: buffer vacio
+SALIDA ESPERADA: Lista vacía de tamaño mínimo predeterminado
+
+-----------------------------------------------------------------
+
+ID: JAVA-GLIST-CONST-03
+FUNCIÓN: GenList
+TIPO: Particiones equivalentes
+CONTEXTO: n/a
+ENTRADA PROPORCIONADA: buffer > 1
+SALIDA ESPERADA: Lista vacía del tamaño de la entrada
+
+-----------------------------------------------------------------
+
 ID: JAVA-GLIST-ADD-01
+FUNCIÓN: add
+TIPO: Valores frontera en entrada
+CONTEXTO: n/a
+ENTRADA PROPORCIONADA:
+	lista vacia
+	elemento válido
+SALIDA ESPERADA: lista con 1 elemento y tamaño 1
+
+-----------------------------------------------------------------
+
+ID: JAVA-GLIST-ADD-02
 FUNCIÓN: add
 TIPO: Valores frontera en entrada
 CONTEXTO: n/a
 ENTRADA PROPORCIONADA:
 	this es lista con num_elementos == buffer
 	elemento válido
-SALIDA ESPERADA: lista con num_elementos + 1 y aumentado en tamaño
+SALIDA ESPERADA: lista con 1 elemento mas y tamaño +1
 
 -----------------------------------------------------------------
 
-ID: JAVA-GLIST-ADD-02
+ID: JAVA-GLIST-ADD-03
 FUNCIÓN: add
 TIPO: Particiones equivalentes
 CONTEXTO: n/a
 ENTRADA PROPORCIONADA:
 	this es lista con num_elementos < buffer
 	elemento válido
-SALIDA ESPERADA: lista con num_elementos + 1 y elemento añadido
-
------------------------------------------------------------------
-
-ID: JAVA-GLIST-ADD-03
-FUNCIÓN: add
-TIPO: Valores frontera en entrada
-CONTEXTO: n/a
-ENTRADA PROPORCIONADA:
-	this -> NULL
-	elemento válido
-SALIDA ESPERADA: la aplicación no crashea
+SALIDA ESPERADA: lista con 1 elemento mas y tamaño +1
 
 -----------------------------------------------------------------
 
@@ -117,7 +135,7 @@ CONTEXTO: n/a
 ENTRADA PROPORCIONADA:
 	this es lista válida
 	posición no válida (negativa o mayor que this->size)
-SALIDA ESPERADA: la aplicación no crashea
+SALIDA ESPERADA: error
 
 -----------------------------------------------------------------
 
@@ -128,7 +146,7 @@ CONTEXTO: n/a
 ENTRADA PROPORCIONADA:
 	this -> NULL
 	posición -> irrelevante
-SALIDA ESPERADA: la aplicación no crashea
+SALIDA ESPERADA: error
 
 -----------------------------------------------------------------
 
@@ -144,22 +162,22 @@ SALIDA ESPERADA: la lista sin el elemento correspondiente
 -----------------------------------------------------------------
 
 ID: JAVA-GLIST-ELEM-01
-FUNCIÓN: getElement
+FUNCIÓN: get
 TIPO: Valores frontera en entrada
 CONTEXTO: n/a
 ENTRADA PROPORCIONADA:
-	this es lista válida
+	lista válida
 	posición no válida (negativa o mayor que this->size)
 SALIDA ESPERADA: la aplicación no crashea
 
 -----------------------------------------------------------------
 
 ID: JAVA-GLIST-ELEM-02
-FUNCIÓN: getElement
+FUNCIÓN: get
 TIPO: Particiones equivalentes
 CONTEXTO: n/a
 ENTRADA PROPORCIONADA:
-	this es lista válida
+	lista válida
 	posición válida
 SALIDA ESPERADA: el elemento en la posición indicada
 
@@ -170,10 +188,9 @@ FUNCIÓN: getExistingObject
 TIPO: Valores frontera en entrada
 CONTEXTO: n/a
 ENTRADA PROPORCIONADA:
-	this -> NULL
+	lista valida
 	elemento cualquiera
-	función cualquiera
-SALIDA ESPERADA: NULL
+SALIDA ESPERADA: el elemento
 
 -----------------------------------------------------------------
 
@@ -182,9 +199,8 @@ FUNCIÓN: getExistingObject
 TIPO: Valores frontera en entrada
 CONTEXTO: n/a
 ENTRADA PROPORCIONADA:
-	this es lista válida
-	elemento -> NULL
-	función cualquiera
+	lista válida
+	elemento no está
 SALIDA ESPERADA: NULL
 
 -----------------------------------------------------------------
@@ -194,34 +210,9 @@ FUNCIÓN: getExistingObject
 TIPO: Valores frontera en entrada
 CONTEXTO: n/a
 ENTRADA PROPORCIONADA:
-	this es lista válida
-	elemento válido
-	función -> NULL
+	lista vacia
+	elemento cualquiera
 SALIDA ESPERADA: NULL
-
------------------------------------------------------------------
-
-ID: JAVA-GLIST-EXOB-04
-FUNCIÓN: getExistingObject
-TIPO: Particiones equivalentes
-CONTEXTO: n/a
-ENTRADA PROPORCIONADA:
-	this es lista válida
-	elemento válido, no se encuentra en la lista
-	función válida
-SALIDA ESPERADA: NULL
-
------------------------------------------------------------------
-
-ID: JAVA-GLIST-EXOB-05
-FUNCIÓN: getExistingObject
-TIPO: Particiones equivalentes
-CONTEXTO: n/a
-ENTRADA PROPORCIONADA:
-	this es lista válida
-	elemento válido, presente en la lista
-	función válida
-SALIDA ESPERADA: el elemento
 
 *****************************************************************
 
