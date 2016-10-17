@@ -1,0 +1,440 @@
+ESTRUCTURA DEL DOCUMENTO:
+
+-Código identificativo
+-Unidad o módulo al que afecta
+-Función/método que afecta
+-Motivación (valores frontera, diagrama de estados, ...)
+-Entrada proporcionada
+-Salida esperada
+-Contexto (de ser necesario)
+
+
+*****************************************************************
+
+	MÓDULO SYMBOL
+	
+*****************************************************************
+	
+ID: JAVA-SYM-CONST-01
+FUNCIÓN: Symbol
+TIPO: Valor de frontera en entrada
+CONTEXTO: n/a
+ENTRADA PROPORCIONADA:
+	symbol -> NULL
+SALIDA ESPERADA: NULLPOINTEREXCEPTION
+	
+-----------------------------------------------------------------
+
+ID: JAVA-SYM-HASH-01
+FUNCIÓN: hashCode
+TIPO: Particiones equivalentes
+CONTEXTO: n/a
+ENTRADA PROPORCIONADA:
+	Se llama dos veces con objetos iguales
+SALIDA ESPERADA: El mismo hashcode para ambos
+
+-----------------------------------------------------------------
+
+ID: JAVA-SYM-EQ-01
+FUNCIÓN: equals
+TIPO: Particiones equivalentes
+CONTEXTO: n/a
+ENTRADA PROPORCIONADA: this es igual que other
+SALIDA ESPERADA: true
+	
+-----------------------------------------------------------------
+
+ID: JAVA-SYM-EQ-02
+FUNCIÓN: equals
+TIPO: Particiones equivalentes
+CONTEXTO: n/a
+ENTRADA PROPORCIONADA: this es distinto a other
+SALIDA ESPERADA: false
+	
+*****************************************************************
+
+	MÓDULO GENLIST
+	
+*****************************************************************
+
+ID: JAVA-GLIST-CONST-01
+FUNCIÓN: GenList
+TIPO: Particiones equivalentes
+CONTEXTO: n/a
+ENTRADA PROPORCIONADA: buffer < 0
+SALIDA ESPERADA: Lista vacía de tamaño mínimo predeterminado
+
+-----------------------------------------------------------------
+
+ID: JAVA-GLIST-ADD-01
+FUNCIÓN: add
+TIPO: Valores frontera en entrada
+CONTEXTO: n/a
+ENTRADA PROPORCIONADA:
+	this es lista con num_elementos == buffer
+	elemento válido
+SALIDA ESPERADA: lista con num_elementos + 1 y aumentado en tamaño
+
+-----------------------------------------------------------------
+
+ID: JAVA-GLIST-ADD-02
+FUNCIÓN: add
+TIPO: Particiones equivalentes
+CONTEXTO: n/a
+ENTRADA PROPORCIONADA:
+	this es lista con num_elementos < buffer
+	elemento válido
+SALIDA ESPERADA: lista con num_elementos + 1 y elemento añadido
+
+-----------------------------------------------------------------
+
+ID: JAVA-GLIST-ADD-03
+FUNCIÓN: add
+TIPO: Valores frontera en entrada
+CONTEXTO: n/a
+ENTRADA PROPORCIONADA:
+	this -> NULL
+	elemento válido
+SALIDA ESPERADA: la aplicación no crashea
+
+-----------------------------------------------------------------
+
+ID: JAVA-GLIST-ADD-04
+FUNCIÓN: add
+TIPO: Valores frontera en entrada
+CONTEXTO: n/a
+ENTRADA PROPORCIONADA:
+	this es lista válida
+	elemento -> NULL
+SALIDA ESPERADA: la misma lista que entró
+
+-----------------------------------------------------------------
+
+ID: JAVA-GLIST-REM-01
+FUNCIÓN: remove
+TIPO: Valores frontera en entrada
+CONTEXTO: n/a
+ENTRADA PROPORCIONADA:
+	this es lista válida
+	posición no válida (negativa o mayor que this->size)
+SALIDA ESPERADA: la aplicación no crashea
+
+-----------------------------------------------------------------
+
+ID: JAVA-GLIST-REM-02
+FUNCIÓN: remove
+TIPO: Valores frontera en entrada
+CONTEXTO: n/a
+ENTRADA PROPORCIONADA:
+	this -> NULL
+	posición -> irrelevante
+SALIDA ESPERADA: la aplicación no crashea
+
+-----------------------------------------------------------------
+
+ID: JAVA-GLIST-REM-03
+FUNCIÓN: remove
+TIPO: Particiones equivalentes
+CONTEXTO: n/a
+ENTRADA PROPORCIONADA:
+	this es lista válida
+	posición válida
+SALIDA ESPERADA: la lista sin el elemento correspondiente
+
+-----------------------------------------------------------------
+
+ID: JAVA-GLIST-ELEM-01
+FUNCIÓN: getElement
+TIPO: Valores frontera en entrada
+CONTEXTO: n/a
+ENTRADA PROPORCIONADA:
+	this es lista válida
+	posición no válida (negativa o mayor que this->size)
+SALIDA ESPERADA: la aplicación no crashea
+
+-----------------------------------------------------------------
+
+ID: JAVA-GLIST-ELEM-02
+FUNCIÓN: getElement
+TIPO: Particiones equivalentes
+CONTEXTO: n/a
+ENTRADA PROPORCIONADA:
+	this es lista válida
+	posición válida
+SALIDA ESPERADA: el elemento en la posición indicada
+
+-----------------------------------------------------------------
+
+ID: JAVA-GLIST-EXOB-01
+FUNCIÓN: getExistingObject
+TIPO: Valores frontera en entrada
+CONTEXTO: n/a
+ENTRADA PROPORCIONADA:
+	this -> NULL
+	elemento cualquiera
+	función cualquiera
+SALIDA ESPERADA: NULL
+
+-----------------------------------------------------------------
+
+ID: JAVA-GLIST-EXOB-02
+FUNCIÓN: getExistingObject
+TIPO: Valores frontera en entrada
+CONTEXTO: n/a
+ENTRADA PROPORCIONADA:
+	this es lista válida
+	elemento -> NULL
+	función cualquiera
+SALIDA ESPERADA: NULL
+
+-----------------------------------------------------------------
+
+ID: JAVA-GLIST-EXOB-03
+FUNCIÓN: getExistingObject
+TIPO: Valores frontera en entrada
+CONTEXTO: n/a
+ENTRADA PROPORCIONADA:
+	this es lista válida
+	elemento válido
+	función -> NULL
+SALIDA ESPERADA: NULL
+
+-----------------------------------------------------------------
+
+ID: JAVA-GLIST-EXOB-04
+FUNCIÓN: getExistingObject
+TIPO: Particiones equivalentes
+CONTEXTO: n/a
+ENTRADA PROPORCIONADA:
+	this es lista válida
+	elemento válido, no se encuentra en la lista
+	función válida
+SALIDA ESPERADA: NULL
+
+-----------------------------------------------------------------
+
+ID: JAVA-GLIST-EXOB-05
+FUNCIÓN: getExistingObject
+TIPO: Particiones equivalentes
+CONTEXTO: n/a
+ENTRADA PROPORCIONADA:
+	this es lista válida
+	elemento válido, presente en la lista
+	función válida
+SALIDA ESPERADA: el elemento
+
+*****************************************************************
+
+	MÓDULO ALPHABET
+	
+*****************************************************************	
+
+Alphabet en Java es una GenList renombrada. Su única implementación se basa
+exclusivamente en llamar a la función equivalente de GenList y devolver
+el resultado. Por ello no se encuentran pruebas que realizar a mayores
+de las ya realizadas en GenList.
+
+*****************************************************************
+
+	MÓDULO STATE
+	
+*****************************************************************
+	
+ID: JAVA-ST-CONST-01
+FUNCIÓN: State
+TIPO: Valor de frontera en entrada
+CONTEXTO: n/a
+ENTRADA PROPORCIONADA:
+	state -> NULL
+SALIDA ESPERADA: NULL
+
+-----------------------------------------------------------------
+
+ID: JAVA-ST-HASH-01
+FUNCIÓN: hashCode
+TIPO: Particiones equivalentes
+CONTEXTO: n/a
+ENTRADA PROPORCIONADA:
+	Dos objetos iguales
+SALIDA ESPERADA: El mismo hashCode
+
+-----------------------------------------------------------------
+
+ID: JAVA-ST-EQ-01
+FUNCIÓN: equals
+TIPO: Particiones equivalentes
+CONTEXTO: n/a
+ENTRADA PROPORCIONADA: this es igual que other
+SALIDA ESPERADA: true
+	
+-----------------------------------------------------------------
+
+ID: JAVA-ST-EQ-02
+FUNCIÓN: equals
+TIPO: Particiones equivalentes
+CONTEXTO: n/a
+ENTRADA PROPORCIONADA: this es distinto a other
+SALIDA ESPERADA: false
+	
+*****************************************************************
+
+	MÓDULO TRANSITION
+
+*****************************************************************
+	
+ID: JAVA-TRANS-CONST-01
+FUNCIÓN: Transition
+TIPO: Valor de frontera en entrada
+CONTEXTO: n/a
+ENTRADA PROPORCIONADA:
+	symbol -> NULL
+	startState es válido
+	endState es válido
+SALIDA ESPERADA: NULL
+
+-----------------------------------------------------------------
+
+ID: JAVA-TRANS-CONST-02
+FUNCIÓN: Transition
+TIPO: Valor de frontera en entrada
+CONTEXTO: n/a
+ENTRADA PROPORCIONADA:
+	symbol es válido
+	startState -> NULL
+	endState es válido
+SALIDA ESPERADA: NULL
+
+-----------------------------------------------------------------
+
+ID: JAVA-TRANS-CONST-03
+FUNCIÓN: Transition
+TIPO: Valor de frontera en entrada
+CONTEXTO: n/a
+ENTRADA PROPORCIONADA:
+	symbol es válido
+	startState es válido
+	endState -> NULL
+SALIDA ESPERADA: NULL
+
+-----------------------------------------------------------------
+
+ID: JAVA-TRANS-HASH-01
+FUNCIÓN: hashCode
+TIPO: Valor de frontera en entrada
+CONTEXTO: n/a
+ENTRADA PROPORCIONADA:
+	this -> NULL
+SALIDA ESPERADA: 0
+
+-----------------------------------------------------------------
+
+ID: JAVA-TRANS-EQ-01
+FUNCIÓN: equals
+TIPO: Particiones equivalentes
+CONTEXTO: n/a
+ENTRADA PROPORCIONADA: this es igual que other
+SALIDA ESPERADA: true
+	
+-----------------------------------------------------------------
+
+ID: JAVA-TRANS-EQ-02
+FUNCIÓN: equals
+TIPO: Particiones equivalentes
+CONTEXTO: n/a
+ENTRADA PROPORCIONADA: this es distinto a other
+SALIDA ESPERADA: false
+	
+*****************************************************************
+
+	MÓDULO DFA
+	
+*****************************************************************
+
+ID: JAVA-DFA-CONST-01
+FUNCIÓN: DFA
+TIPO: Valores frontera en entrada
+CONTEXTO: n/a
+ENTRADA PROPORCIONADA:
+	states -> NULL
+	alphabet es válido
+	initialState es válido
+	finalStates es válido
+	transitions es válido
+SALIDA ESPERADA: NULL
+
+-----------------------------------------------------------------
+
+ID: JAVA-DFA-CONST-02
+FUNCIÓN: DFA
+TIPO: Valores frontera en entrada
+CONTEXTO: n/a
+ENTRADA PROPORCIONADA:
+	states es válido
+	alphabet -> NULL
+	initialState es válido
+	finalStates es válido
+	transitions es válido
+SALIDA ESPERADA: NULL
+
+-----------------------------------------------------------------
+
+ID: JAVA-DFA-CST-01
+FUNCIÓN: getAllConnectedStates
+TIPO: Valores frontera en entrada
+CONTEXTO: Mocks para GenList y Transition
+ENTRADA PROPORCIONADA:
+	DFA -> NULL
+SALIDA ESPERADA: NULL
+
+-----------------------------------------------------------------
+
+ID: JAVA-DFA-CST-02
+FUNCIÓN: getConnectedStates
+TIPO: Particiones equivalentes
+CONTEXTO: Mocks para GenList y Transition
+ENTRADA PROPORCIONADA:
+	DFA sin estados conectados (sin transiciones)
+SALIDA ESPERADA: Lista vacía
+
+-----------------------------------------------------------------
+
+ID: JAVA-DFA-CST-03
+FUNCIÓN: getConnectedStates
+TIPO: Particiones equivalentes
+CONTEXTO: Mocks para GenList y Transition
+ENTRADA PROPORCIONADA:
+	DFA con estados conectados
+SALIDA ESPERADA: Lista con los estados conectados
+
+-----------------------------------------------------------------
+
+ID: JAVA-DFA-DFAC-01
+FUNCIÓN: getConnectedDFA
+TIPO: Valores frontera de entrada
+CONTEXTO: Mocks para GenList y Transition
+ENTRADA PROPORCIONADA:
+	DFA -> NULL
+SALIDA ESPERADA: NULL
+
+-----------------------------------------------------------------
+
+ID: JAVA-DFA-DFAC-02
+FUNCIÓN: getConnectedDFA
+TIPO: Particiones equivalentes
+CONTEXTO: Mocks para GenList y Transition
+ENTRADA PROPORCIONADA:
+	DFA sin transiciones
+SALIDA ESPERADA: DFA con el estado inicial, sólo si también es estado final
+
+-----------------------------------------------------------------
+
+ID: JAVA-DFA-DFAC-03
+FUNCIÓN: getConnectedDFA
+TIPO: Particiones equivalentes
+CONTEXTO: Mocks para GenList y Transition
+ENTRADA PROPORCIONADA:
+	DFA válido
+SALIDA ESPERADA: DFA simplificado
+
+-----------------------------------------------------------------
+
