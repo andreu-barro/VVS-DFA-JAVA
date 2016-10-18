@@ -29,7 +29,7 @@ public class Main {
             throws IOException {
         String fp = filePath;
         String afd;
-
+//prueba de deteccion
         try (BufferedReader br
                 = new BufferedReader(new FileReader(fp))) {
             afd = br.readLine();
