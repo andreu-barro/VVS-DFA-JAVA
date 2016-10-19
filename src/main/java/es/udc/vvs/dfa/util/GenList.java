@@ -16,7 +16,8 @@ public class GenList<T> {
     public GenList() {}
 
     public GenList(int buffer) {
-        this.buffer = buffer;
+        if (buffer>=0)
+            this.buffer = buffer;
     }
 
     /**
