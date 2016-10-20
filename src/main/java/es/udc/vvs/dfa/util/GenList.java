@@ -16,7 +16,8 @@ public class GenList<T> {
     public GenList() {}
 
     public GenList(int buffer) {
-        this.buffer = buffer;
+        if (buffer>=0)
+            this.buffer = buffer;
     }
 
     /**
@@ -63,6 +64,8 @@ public class GenList<T> {
      * @param n the nth position (0-based)
      */
     public void remove(int n) {
+        
+        if (n>=size) { throw new NullPointerException(); }
         if (n > pointer) { return; }
 
         for (int i = n + 1; i <= pointer; i++) {
