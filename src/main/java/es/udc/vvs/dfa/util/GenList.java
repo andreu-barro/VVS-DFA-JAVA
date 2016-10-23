@@ -3,20 +3,40 @@ package es.udc.vvs.dfa.util;
 /**
  * This class represents a particular generic list.
  *
- * @author {andreu.barro, manoel.folgueira, uxia.ponte.villaverde}@udc.es
+ * @author {andreu.barro, emma.oitaven, javier.moure}@udc.es
  * @param <T>
  */
 public class GenList<T> {
 
+	/**
+	 * Tamaño.
+	 */
     private int size = 0;
+	/**
+	 * Buffer.
+	 */
     private int buffer = 1;
+	/**
+	 * Puntero.
+	 */
     private int pointer = -1;
+	/**
+	 * Lista.
+	 */
     private Object[] list = null;
+    /**
+	 * Construcctor.
+	 */
+    public GenList() {
+    	
+    }
 
-    public GenList() {}
-
+    /**
+     * Constructor.
+     * @param buffer 
+     * */
     public GenList(int buffer) {
-        if (buffer>=0)
+        if (buffer >= 0)
             this.buffer = buffer;
     }
 
@@ -41,7 +61,7 @@ public class GenList<T> {
     /**
      * Adds some T object to the tail.
      *
-     * @param obj
+     * @param obj anadir objeto
      */
     public void add(T obj) {
         pointer++;
@@ -51,7 +71,7 @@ public class GenList<T> {
                 list = new Object[size];
             } else {
                 Object[] newBufferedList = new Object[size];
-                System.arraycopy(list, 0, newBufferedList, 0, size-buffer);
+                System.arraycopy(list, 0, newBufferedList, 0, size - buffer);
                 list = newBufferedList;
             }
         }
@@ -62,11 +82,18 @@ public class GenList<T> {
      * Removes the nth element.
      *
      * @param n the nth position (0-based)
+     * @exception NullPointerException
      */
     public void remove(int n) {
         
-        if (n>=size) { throw new NullPointerException(); }
-        if (n > pointer) { return; }
+        if (n >= size) 
+        { 
+        	throw new NullPointerException();
+        }
+        if (n > pointer) 
+        { 
+        	return; 
+        	}
 
         for (int i = n + 1; i <= pointer; i++) {
             list[i - 1] = list[i];
@@ -144,8 +171,14 @@ public class GenList<T> {
 
     @Override
     public String toString() {
-        if (list == null) { return ""; }
-        if (buffer > 1) { clearNulls(); }
+        if (list == null) 
+        { 
+        	return ""; 
+        }
+        if (buffer > 1) 
+        { 
+        	clearNulls(); 
+        }
 
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i <= pointer; i++) {

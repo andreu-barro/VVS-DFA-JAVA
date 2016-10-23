@@ -23,7 +23,7 @@ public class Main {
      * codification.
      * @param filePath the location of the input file.
      * @return The text which represents the DFA from the input file.
-     * @throws IOException
+     * @throws IOException excepcion
      */
     private static String getStringAutomataFromFile(String filePath)
             throws IOException {
@@ -40,9 +40,9 @@ public class Main {
 
     /**
      * Converts a DFA as a String into an actual DFA object.
-     * @param DFA String DFA representation
+     * @param dfa String DFA representation
      * @return An actual DFA object
-     * @throws MalformedDFAException
+     * @throws MalformedDFAException excepcion
      */
     private static DFA parseDFA(String dfa) throws MalformedDFAException {
 
@@ -108,6 +108,7 @@ public class Main {
      * the DFA string codification between quotes (");
      *
      * @param args the command line arguments (DFA codification / file path)
+     * @throws MalformedDFAException excepcion
      */
     public static void main(String[] args) throws MalformedDFAException {
         String dfaString = null, output = null;

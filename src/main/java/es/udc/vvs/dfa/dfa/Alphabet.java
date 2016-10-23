@@ -7,16 +7,30 @@ import es.udc.vvs.dfa.util.GenList;
  * @author {andreu.barro, manoel.folgueira, uxia.ponte.villaverde}@udc.es
  */
 public class Alphabet {
+	/**
+	 * Se crea la variable estática de alphabeto.
+	 */
     private final GenList<Symbol> alphabet;
 
+    /**
+     * Construnctor.
+     * */
     public Alphabet() {
         alphabet = new GenList<Symbol>();
     }
 
+    /**
+     * Construnctor con parámetros.
+     * @param n tamaño de la lista
+     * */
     public Alphabet(int n) {
         alphabet = new GenList<Symbol>(n);
     }
 
+    /**
+     * Añadimos simbolos nuevos al alfabeto.
+     * @param symbol añade simbolo
+     * */
     public void addNewSymbol(Symbol symbol) {
         alphabet.add(symbol);
     }
@@ -25,13 +39,16 @@ public class Alphabet {
      * @see
      * public T es.udc.fic.dlp1516.automata.GenList.getExistingObject(T obj)
      * for further information.
-     * @param symbol
+     * @param symbol comprueba si existe el simbolo
      * @return an equal T object from the GenList.
      */
     public Symbol getExistingObject(Symbol symbol) {
         return alphabet.getExistingObject(symbol);
     }
 
+    /**
+     * @return lista de simbolos
+     * */
     public GenList<Symbol> getAlphabet() {
         return alphabet;
     }

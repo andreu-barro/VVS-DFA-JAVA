@@ -5,16 +5,26 @@ import java.util.Objects;
 /**
  * This class defines the Symbol element of an Alphabet.
  * @@author {andreu.barro, manoel.folgueira, uxia.ponte.villaverde}@udc.es
- * @param <T>
  */
 public class Symbol {
 
+	/**
+	 * Simbolo.
+	 */
     private final String symbol;
 
+	/**
+	 * Constructor.
+	 * @param symbol simbolo
+	 */
     public Symbol(String symbol) {
         this.symbol = symbol;
     }
 
+	/**
+	 * Get simbolo.
+	 * @return devuelve el simbolo
+	 */
     public String getSymbol() {
         return symbol;
     }

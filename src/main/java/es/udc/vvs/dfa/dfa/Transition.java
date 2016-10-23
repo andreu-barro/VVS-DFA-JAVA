@@ -4,28 +4,53 @@ import java.util.Objects;
 
 /**
  * This class defines the Transition element of a DFA.
- * @author {andreu.barro, manoel.folgueira, uxia.ponte.villaverde}@udc.es
+ * @author {andreu.barro, emma.oitaven, javi.moure}@udc.es
  */
 public class Transition {
 
+	/**
+	 * Estado.
+	 */
     private final State startState;
+	/**
+	 * Estado final.
+	 */
     private final State endState;
+	/**
+	 * Simbolo.
+	 */
     private final Symbol symbol;
 
+	/**
+	 * Constructor.
+	 * @param startState estado inicial
+	 * @param endState estado final
+	 * @param symbol Simbolo
+	 */
     public Transition(State startState, State endState, Symbol symbol) {
         this.startState = startState;
         this.endState = endState;
         this.symbol = symbol;
     }
 
+    /**
+     * Devuelve el estado inicial.
+     * @return State
+     */
     public State getStartState() {
         return startState;
     }
-
+    /**
+     * Devuelve el estado final.
+     * @return State
+     */
     public State getEndState() {
         return endState;
     }
-
+    /**
+     * Devuelve el simbolo.
+     * @return Symbol
+     */
     public Symbol getSymbol() {
         return symbol;
     }
@@ -65,10 +90,12 @@ public class Transition {
     @Override
     public String toString() {
         return "Transition{"
-          + startState + ", "
-          + endState + ", "
-          + symbol +
-        "}";
+          + startState 
+          + ", "
+          + endState 
+          + ", "
+          + symbol 
+          + "}";
     }
 
 

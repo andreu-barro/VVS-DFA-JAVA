@@ -10,14 +10,37 @@ import es.udc.vvs.dfa.util.GenList;
 public class DFA {
 
     /**
-     * All these attributes define a DFA
+     * All these attributes define a DFA.
+     */
+	/**
+     * Lista de estados.
      */
     private final GenList<State> states;
+    /**
+     * Alfabeto.
+     */
     private final Alphabet alphabet;
+    /**
+     * Estado inicial.
+     */
     private final State initialState;
+    /**
+     * Estados finales.
+     */
     private final GenList<State> finalStates;
+    /**
+     * Transiciones.
+     */
     private final GenList<Transition> transitions;
 
+    /**
+     * Constructor.
+     * @param states lista de estados
+     * @param alphabet alfabeto
+     * @param initialState estado inicial
+     * @param finalStates estados finales
+     * @param transitions transiciones
+     * */
     public DFA(GenList<State> states, Alphabet alphabet, State initialState,
             GenList<State> finalStates, GenList<Transition> transitions) {
         this.states = states;
@@ -32,7 +55,8 @@ public class DFA {
      * @return the connected states
      */
     private GenList<State> getAllConnectedStates() {
-        Transition t, rTransition;
+        Transition t;
+        Transition rTransition;
         GenList<State> visitedStates = new GenList<State>();
         visitedStates.add(initialState);
         State currentState;
@@ -43,12 +67,12 @@ public class DFA {
                 alphabet.getAlphabet().getSize());
 
         // Breadth First Search
-        int head = 0, tail = 0;
+        int head = 0;
+        int tail = 0;
         while (head <= tail) {
             currentState = statesQueue[head];
             statesQueue[head++] = null; // let the GC free unused queue space
-
-            for(Symbol symbol: alphabetList) {
+            for (Symbol symbol: alphabetList) {
                 t = new Transition(currentState, null, symbol);
                 if ((rTransition = transitions.getExistingObject(t)) != null) {
                     if (visitedStates.getExistingObject(rTransition.getEndState()) == null) {
@@ -58,7 +82,6 @@ public class DFA {
                 }
             }
         }
-
         return visitedStates;
     }
 
@@ -82,13 +105,14 @@ public class DFA {
         System.arraycopy(finalStates.getArray(), 0, finalStatesList, 0,
             finalStates.getSize());
         State[] fArray = new State[finalStates.getSize()];
-        int i=0, j=0;
+        int i = 0;
+        int j = 0;
         for (State s: finalStatesList) {
             if (q.getExistingObject(s) != null) {
                 fArray[i++] = s;
             }
         }
-        while (j<i) {
+        while (j < i) {
             f.add(fArray[j++]);
         }
 
@@ -97,16 +121,16 @@ public class DFA {
         System.arraycopy(transitions.getArray(), 0, transitionList, 0,
             transitions.getSize());
         Transition[] tArray = new Transition[transitions.getSize()];
-        i=0; j=0;
+        i = 0; 
+        j = 0;
         for (Transition ts: transitionList) {
             if (q.getExistingObject(ts.getStartState()) != null) {
                 tArray[i++] = ts;
             }
         }
-        while (j<i) {
+        while (j < i) {
             t.add(tArray[j++]);
         }
-
         return new DFA(q, this.alphabet, initialState, f, t);
     }
 
@@ -120,6 +144,11 @@ public class DFA {
           + ",\n\ttransitions=\n\t" + getTransitionsTable() + "\n}";
     }
 
+
+    /**
+     * Devuelve la tabla de transiciones.
+     * @return devuelve el estado de la tabla de transiciones.
+     * */
     private String getTransitionsTable() {
         StringBuilder output = new StringBuilder("");
         output.append("   | ");

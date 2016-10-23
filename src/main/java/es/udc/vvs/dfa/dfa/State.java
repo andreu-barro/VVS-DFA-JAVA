@@ -5,15 +5,26 @@ import java.util.Objects;
 /**
  * This class defines the State element of a DFA.
  * @author {andreu.barro, manoel.folgueira, uxia.ponte.villaverde}@udc.es
- * @param <T>
  */
 public class State {
+	
+	/**
+	 * Estado.
+	 */
     private final String state;
 
+    /**
+     * Constructor.
+     * @param state Estado
+     */
     public State(String state) {
         this.state = state;
     }
 
+    /**
+     * Constructor.
+     * @return estado
+     */
     public String getState() {
         return state;
     }
