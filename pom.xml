@@ -50,6 +50,11 @@
                     </formats>
                 </configuration>            
             </plugin> 
+			<plugin>
+                <groupId>org.pitest</groupId>
+                <artifactId>pitest-maven</artifactId>
+                <version>0.25</version>
+            </plugin>
             </plugins>
     </build>
     
@@ -98,6 +103,18 @@
                     <!-- Configures the directory in which the XML report is created -->
                     <findbugsXmlOutputDirectory>${project.build.directory}/findbugs</findbugsXmlOutputDirectory>
                 </configuration>
+            </plugin>
+			<plugin>
+                <groupId>org.pitest</groupId>
+                <artifactId>pitest-maven</artifactId>
+                <version>LATEST</version>
+                <reportSets>
+                    <reportSet>
+                        <reports>
+                            <report>report</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
             </plugin>
        </plugins>
     </reporting>
