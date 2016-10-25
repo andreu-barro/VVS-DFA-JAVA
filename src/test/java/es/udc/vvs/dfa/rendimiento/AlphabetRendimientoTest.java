@@ -16,11 +16,10 @@ import etm.core.monitor.EtmPoint;
 
 import com.google.code.jetm.reporting.BindingMeasurementRenderer;
 import com.google.code.jetm.reporting.xml.XmlAggregateBinder;
-import es.udc.vvs.dfa.dfa.State;
+import es.udc.vvs.dfa.dfa.Alphabet;
 import es.udc.vvs.dfa.dfa.Symbol;
-import es.udc.vvs.dfa.dfa.Transition;
 
-public class TransitionRendimientoTest1 {
+public class AlphabetRendimientoTest {
 
     private static EtmMonitor etmMonitor;
 
@@ -67,62 +66,63 @@ public class TransitionRendimientoTest1 {
     private final Integer itNumber = 10000;
 
     /**
-     * GetStartState test.
+     * addNewSymbol test.
      */
     @Test
-    public final void getStartStateRendimientoTest() {
-        List<Transition> testElements = new ArrayList<Transition>();
+    public final void addNewSymbolRendimientoTest() {
+        List<Alphabet> testElements = new ArrayList<Alphabet>();
         for (int i = 0; i < itNumber; i++) {
-            testElements.add(new Transition(new State("a"), new State("a"), new Symbol("a")));
+            testElements.add(new Alphabet());
         }
 
         EtmPoint point = etmMonitor
-                .createPoint("TransitionRendimientoTest:getStartState");
+                .createPoint("AlphabetRendimientoTest:addNewSymbol");
 
-        for (Transition a : testElements) {
-            a.getStartState();
+        for (Alphabet a : testElements) {
+            a.addNewSymbol(new Symbol("a"));
         }
 
         point.collect();
     }
 
     /**
-     * GetEndState test.
+     * getAlphabet test.
      */
     @Test
-    public final void getEndStateRendimientoTest() {
-        List<Transition> testElements = new ArrayList<Transition>();
+    public final void getAlphabetRendimientoTest() {
+        List<Alphabet> testElements = new ArrayList<Alphabet>();
         for (int i = 0; i < itNumber; i++) {
-            testElements.add(new Transition(new State("a"), new State("a"), new Symbol("a")));
+            testElements.add(new Alphabet());
         }
 
         EtmPoint point = etmMonitor
-                .createPoint("TransitionRendimientoTest:getEndState");
+                .createPoint("AlphabetRendimientoTest:getAlphabet");
 
-        for (Transition a : testElements) {
-            a.getEndState();
+        for (Alphabet a : testElements) {
+            a.getAlphabet();
         }
 
         point.collect();
     }
     
     /**
-     * GetSymbol test.
+     * getExistingObject test.
      */
     @Test
-    public final void getSymbolRendimientoTest() {
-        List<Transition> testElements = new ArrayList<Transition>();
+    public final void getExistingObjectRendimientoTest() {
+        List<Alphabet> testElements = new ArrayList<Alphabet>();
         for (int i = 0; i < itNumber; i++) {
-            testElements.add(new Transition(new State("a"), new State("a"), new Symbol("a")));
+            testElements.add(new Alphabet());
         }
 
         EtmPoint point = etmMonitor
-                .createPoint("TransitionRendimientoTest:getSymbol");
+                .createPoint("AlphabetRendimientoTest:getExistingObject");
 
-        for (Transition a : testElements) {
-            a.getSymbol();
+        for (Alphabet a : testElements) {
+            a.getExistingObject(null);
         }
 
         point.collect();
     }
+    
 }
