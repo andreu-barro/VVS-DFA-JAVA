@@ -28,6 +28,16 @@
             <version>0.6</version>
             <scope>test</scope>
         </dependency>
+		<dependency>
+            <groupId>com.google.code.jetm</groupId>
+            <artifactId>jetm-reporting-utilities</artifactId>
+            <version>1.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>fm.void.jetm</groupId>
+            <artifactId>jetm</artifactId>
+            <version>1.2.3</version>
+        </dependency>
     </dependencies>
     <build>
     <plugins>
@@ -83,6 +93,16 @@
             </reportSet>
           </reportSets>
        </plugin>
+	   <plugin>
+                <groupId>com.google.code.jetm</groupId>
+                <artifactId>jetm-maven-plugin</artifactId>
+                <version>1.0.1</version>
+                <configuration>
+                    <timings>
+                        <timing>${project.build.directory}/jetm</timing>
+                    </timings>
+                </configuration>
+            </plugin>
                    <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>findbugs-maven-plugin</artifactId>
