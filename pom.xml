@@ -38,6 +38,13 @@
             <artifactId>jetm</artifactId>
             <version>1.2.3</version>
         </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.4</version>
+            <scope>test</scope>
+            <type>jar</type>
+        </dependency>
     </dependencies>
     <build>
     <plugins>
