@@ -10,6 +10,8 @@ Integrantes:
 
 La aplicación sobre la que haremos tests simplifica DFA (Autómatas Finitos Deterministas), eliminando transiciones redundantes y estados inalcanzables, para obtener un DFA equivalente (capaz de aceptar el mismo lenguaje).
 
+Para ejecutar los reports: mvn test site. Los genera en target/site/Index.html, ahí navegamos a project reports.
+
 Esta aplicación fue programada en tres lenguajes distintos:
 
 C: https://github.com/srjavimoure/VVS-DFA-C  
