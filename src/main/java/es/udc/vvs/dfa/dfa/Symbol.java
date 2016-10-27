@@ -26,7 +26,10 @@ public class Symbol {
 	 * @return devuelve el simbolo
 	 */
     public String getSymbol() {
+        if (symbol!=null) {
         return symbol;
+        }
+        else return null;
     }
 
     @Override

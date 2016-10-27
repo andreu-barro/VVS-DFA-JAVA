@@ -6,7 +6,6 @@ import es.udc.vvs.dfa.dfa.Symbol;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-
 public class StateTest {
 
 @Test
