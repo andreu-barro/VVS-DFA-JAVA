@@ -58,7 +58,7 @@ public class Symbol {
 
     @Override
     public String toString() {
-        return symbol.toString();
+        return symbol;//.toString();
     }
 
 
