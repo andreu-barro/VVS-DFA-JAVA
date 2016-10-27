@@ -34,7 +34,7 @@ public class State {
 
     @Override
     public String toString() {
-        return state.toString();
+        return state;//.toString();
     }
 
     @Override
