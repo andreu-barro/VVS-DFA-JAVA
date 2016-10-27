@@ -38,21 +38,30 @@ public class Transition {
      * @return State
      */
     public State getStartState() {
-        return startState;
+        if (startState!=null) {
+            return startState;
+        }
+        else return null;
     }
     /**
      * Devuelve el estado final.
      * @return State
      */
     public State getEndState() {
+        if (endState!=null) {
         return endState;
+        }
+        else return null;
     }
     /**
      * Devuelve el simbolo.
      * @return Symbol
      */
     public Symbol getSymbol() {
+        if (symbol!=null) {
         return symbol;
+        }
+        else return null;
     }
 
     @Override
