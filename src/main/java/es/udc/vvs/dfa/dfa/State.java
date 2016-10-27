@@ -26,7 +26,10 @@ public class State {
      * @return estado
      */
     public String getState() {
+        if (state!=null) {
         return state;
+        }
+        else return null;
     }
 
     @Override

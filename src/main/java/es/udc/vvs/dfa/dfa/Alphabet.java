@@ -43,14 +43,20 @@ public class Alphabet {
      * @return an equal T object from the GenList.
      */
     public Symbol getExistingObject(Symbol symbol) {
+        if (alphabet.getExistingObject(symbol)!=null) {
         return alphabet.getExistingObject(symbol);
+        }
+        else return null;
     }
 
     /**
      * @return lista de simbolos
      * */
     public GenList<Symbol> getAlphabet() {
+        if (alphabet!=null) {
         return alphabet;
+        }
+        else return null;
     }
 
     @Override
