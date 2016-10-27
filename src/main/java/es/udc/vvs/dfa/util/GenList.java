@@ -86,12 +86,10 @@ public class GenList<T> {
      */
     public void remove(int n) {
         
-        if (n >= size) 
-        { 
+        if (n >= size) { 
         	throw new NullPointerException();
         }
-        if (n > pointer) 
-        { 
+        if (n > pointer) { 
         	return; 
         	}
 
@@ -171,12 +169,10 @@ public class GenList<T> {
 
     @Override
     public String toString() {
-        if (list == null) 
-        { 
+        if (list == null) { 
         	return ""; 
         }
-        if (buffer > 1) 
-        { 
+        if (buffer > 1) { 
         	clearNulls(); 
         }
 

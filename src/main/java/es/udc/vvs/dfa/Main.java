@@ -6,9 +6,12 @@ import es.udc.vvs.dfa.dfa.Transition;
 import es.udc.vvs.dfa.dfa.State;
 import es.udc.vvs.dfa.dfa.DFA;
 import es.udc.vvs.dfa.util.GenList;
+
 import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 import es.udc.vvs.dfa.excepciones.MalformedDFAException;
 
@@ -30,11 +33,15 @@ public class Main {
         String fp = filePath;
         String afd;
 //prueba de deteccion
-        try (BufferedReader br
-                = new BufferedReader(new FileReader(fp))) {
-            afd = br.readLine();
-        }
+//        try (BufferedReader br
+  //              = new BufferedReader(new FileReader(fp))) {
+    //        afd = br.readLine();
+      //  }
 
+      try(  BufferedReader br = new BufferedReader(
+    		  new InputStreamReader(new FileInputStream(fp),""))){
+        afd = br.readLine();
+      }
         return afd;
     }
 
