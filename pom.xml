@@ -7,6 +7,9 @@
     <properties>
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
+		<!-- Set graphwalker.version below to the version you wish to use. We recommend 
+			the latest stable version -->
+		<graphwalker.version>3.3.0</graphwalker.version>
     </properties>
     <dependencies>
         <dependency>
@@ -45,6 +48,21 @@
             <scope>test</scope>
             <type>jar</type>
         </dependency>
+		<dependency>
+			<groupId>org.graphwalker</groupId>
+			<artifactId>graphwalker-core</artifactId>
+			<version>${graphwalker.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.graphwalker</groupId>
+			<artifactId>graphwalker-java</artifactId>
+			<version>${graphwalker.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.graphwalker</groupId>
+			<artifactId>graphwalker-maven-plugin</artifactId>
+			<version>${graphwalker.version}</version>
+		</dependency>
     </dependencies>
     <build>
     <plugins>
@@ -80,6 +98,21 @@
 					</targetTests>
 				</configuration>
             </plugin>
+				<plugin>
+					<groupId>org.graphwalker</groupId>
+					<artifactId>graphwalker-maven-plugin</artifactId>
+					<version>${graphwalker.version}</version>
+					<!-- Bind goals to the default lifecycle -->
+					<executions>
+						<execution>
+							<id>generate-sources</id>
+							<phase>generate-sources</phase>
+							<goals>
+								<goal>generate-sources</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>	
             </plugins>
     </build>
     
