@@ -6,7 +6,7 @@ import es.udc.vvs.dfa.dfa.Symbol;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-/*
+
 public class TransitionTest {
 
 // Symbol null, startDate y endDate validos
@@ -44,4 +44,4 @@ public void testEqualsSymbol2() {
     Symbol symbol2 = new Symbol("12");
     assertEquals(symbol.equals(symbol2),false);
 }
-}*/
+}
