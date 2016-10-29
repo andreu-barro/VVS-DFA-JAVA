@@ -161,11 +161,9 @@ Dicha aplicación simula el comportamiento de una máquina de estados
 
 \subsection{Compoñentes avaliados}
 
-\hint{Para cada compoñente: funcionalidades nas que participa, número
-  de probas obxectivo, número de probas preparadas, porcentaxe
-  executada e porcentaxe superada. Se esta información é profusa e se
-  almacena noutra fonte, referencia á fonte. Se é cambiante,
-  referencia a unha \emph{shapshot} ou resumo do mais destacado.}
+Si ejecutamos \textit{mvn test org.pitest:pitest-maven:mutationCoverage site} en la raiz del proyecto se generarán reports sobre los tests. \\
+
+Los genera en target/site/Index.html, ahí navegamos a project reports. \\
 
 \section{Especificación de probas}
 
@@ -253,21 +251,19 @@ Dicha aplicación simula el comportamiento de una máquina de estados
 	
 	\section{Registro de errores}
 	\subsection{Pruebas unidad: JUnit}
-	En la primera iteración se encuentra que faltan test de funciones, se añaden los test que faltan y se comprueba que no fallan.
+	Se puede comprobar que no fallan.
+	
+	\subsection{Pruebas dinámicas de unidad: Mockito}
+	Se puede comprobar que no fallan.
 	
 	\subsection{Validación de la calidad de las pruebas: Cobertura}
-	Realizada la prueba de cobertura de pruebas, se observa que faltan muchos test por implementar, por lo que se procede a implementar los test que faltan, según la información que nos ofrece el plugin de ecobertura.\\
-	%	\includegraphics[width=15cm]{Imagenes/CoberturaSemana1.png} \\
-	Después utilizar Junit y Quickcheck para:
-	\begin{itemize}
-		\item Aumentar cobertura de Anuncio (casi al 100%)
-		\item Aumentar cobertura de ServidorNormal (al 100%)
-		\item Aumentar cobertura de ServidorGenerico (casi al 100%)
-		\item Aumentar cobertura de Token 
-		\item Aumentar cobertura de ServidorConPadres
-	\end{itemize}
-	Quedó:
 	
+	Estado inicial:
+	IMAGEN1COBERTURA
+	%	\includegraphics[width=15cm]{Imagenes/Covertura3.png}
+	
+	Estado final:
+	IMAGEN2COBERTURA
 	%	\includegraphics[width=15cm]{Imagenes/Covertura3.png}
 	
 	\subsection{Pruebas no funcionales: JETM}
@@ -284,7 +280,7 @@ Dicha aplicación simula el comportamiento de una máquina de estados
 	
 	\subsection{Pruebas estructurales: CheckStyle}
 	Podemos comprobar los herrores encontrados en el siguiente informe: \href{Informes/SiteTestInicial/checkstyle.html}{Informe CheckStyle} \\
-	Al pasar la herramienta de CheckStyle descubrimos que nuestra aplicación tiene unos 236 errores de estilo, es decir, que no cumple el estandar de programación java.
+	Al pasar la herramienta de CheckStyle descubrimos que nuestra aplicación tiene muchos errores de estilo, es decir, que no cumple el estandar de programación java.
 	
 	Resumen de errores encontrados:
 	\begin{itemize}
@@ -292,26 +288,21 @@ Dicha aplicación simula el comportamiento de una máquina de estados
 		\item Mala indexación código y espacios: Se reestructura el código para que solventar dichos errores.
 	\end{itemize}
 	
-	Se revisa el informe con los 236 errores de estilo y se eliminan los 236 errores de estilo.
+
 	%		\includegraphics[width=15cm]{Imagenes/CheckStyleResut.png} \\
 	\subsection{Pruebas estáticas/estructurales: FindBugs}
 	
 	FindBugs es un programa que utiliza el análisis estático para buscar errores en el código de Java.
 	
-	En la versión inicial podemos comprobar que tenemos los siguientes errores:
 	\href{Informes/SiteTestInicial/findbugs.html}{Informe Find bugs} \\
 	
-	Errores encontrados:
-	\begin{itemize}
-		\item 	ST WRITE TO STATIC FROM INSTANCE METHOD: En la clase token existía un método que escribía en una variable estática, esto es una mala práctica cuando está siendo manipulado por varias instancias.
-		\item 	RI REDUNDANT INTERFACES: ServidorNormal y ServidorConPadres implementa la misma interfaz que la superclase.
-		\item BC EQUALS METHOD SHOULD WORK FOR ALL OBJECTS: El método equals (Object o) no debe hacer ninguna suposición sobre el tipo de o. Simplemente debe devolver false si o no es del mismo tipo que esta. La clase Anuncio asume el argumento es de tipo anuncio.
-		\item HE EQUALS USE HASHCODE: La clase anuncio Esta clase anula Equals (Object) , pero no anula hashCode () , y hereda la implementación de hashCode () de java.lang.Object (que devuelve el código hash de identidad, un valor arbitrario asignado al objeto por el VM ) . Por lo tanto , es muy probable que violaría el invariante que los objetos iguales deben tener iguales hashcodes la clase.
-		\item NP EQUALS SHOULD HANDLE NULL ARGUMENT: En la clase anuncio, el método no funciona para cuando el objeto es nulo.	
-	\end{itemize}
+	Errores encontrados inicialmente:
+	IMAGEN FINDBUGS1
+	%\includegraphics[width=15cm]{Imagenes/FindsBugs2.png} \\
+	
 	Después de identificar los errores, resolvedos los problemas mencionados y comprobamos el resultado:\\
-	\\
-	%	\includegraphics[width=15cm]{Imagenes/FindsBugs2.png} \\
+	IMAGEN FINDBUGS2
+	%\includegraphics[width=15cm]{Imagenes/FindsBugs2.png} \\
 
 \section{Estatísticas}
 
