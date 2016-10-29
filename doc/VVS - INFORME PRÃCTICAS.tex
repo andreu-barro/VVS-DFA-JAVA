@@ -1,0 +1,172 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This document is based on the template: Large Colored Title Article %
+%                                         Version 1.1 (25/11/12)      %
+%                                                                     %
+% The template was downloaded from: http://www.LaTeXTemplates.com     %
+%                                                                     %
+% Original author:                                                    %
+% Frits Wenneker (http://www.howtotex.com)                            %
+%                                                                     %
+% License:                                                            %
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/) %
+%                                                                     %
+% Author of this version:                                             %
+% Laura M. Castro (http://www.madsgroup.org/staff/laura)              %
+%                                                                     %
+% Original licensing terms are maintained                             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[DIV=calc,paper=a4,fontsize=11pt,onecolumn]{scrartcl} % A4 paper and 11pt font size
+
+\usepackage[a4paper,margin=3cm]{geometry} % 2cm margins
+
+\usepackage[galician]{babel} % Galician language/hyphenation
+\usepackage[utf8]{inputenc}
+\usepackage[protrusion=true,expansion=true]{microtype} % Better typography
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+\usepackage[svgnames]{xcolor} % Enabling colors by their 'svgnames'
+\usepackage[hang,small,labelfont=bf,up,textfont=it,up]{caption} % Custom captions under/above floats in tables or figures
+\usepackage{booktabs} % Horizontal rules in tables
+\usepackage{fix-cm}   % Custom font sizes - used for the initial letter in the document
+
+\usepackage{sectsty}  % Enables custom section titles
+\allsectionsfont{\usefont{OT1}{phv}{b}{n}} % Change the font of all section commands
+
+\usepackage{fancyhdr} % Needed to define custom headers/footers
+\pagestyle{fancy}     % Enables the custom headers/footers
+\usepackage{lastpage} % Used to determine the number of pages in the document (for "Page X of Total")
+
+% Headers - all currently empty
+\lhead{}
+\chead{}
+\rhead{}
+
+% Footers
+\lfoot{\textsc{vvs-informe-prácticas}}
+\cfoot{}
+\rfoot{\footnotesize Páxina \thepage\ de \pageref{LastPage}} % "Page 1 of 2"
+
+\renewcommand{\headrulewidth}{0.0pt} % No header rule
+\renewcommand{\footrulewidth}{0.4pt} % Thin footer rule
+
+\definecolor{UDC}{RGB}{206,0,124}
+\definecolor{DarkUDC}{rgb}{0.75,0.75,0.75}
+\definecolor{LightUDC}{RGB}{128,128,128}
+
+\usepackage{lettrine} % Package to accentuate the first letter of the text
+\newcommand{\initial}[1]{ % Defines the command and style for the first letter
+\lettrine[lines=3,lhang=0.3,nindent=0em]{
+\color{UDC}
+{\textsf{#1}}}{}}
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\usepackage{titling} % Allows custom title configuration
+
+\newcommand{\HorRule}{\color{UDC} \rule{\linewidth}{1pt}} % Defines the pink horizontal rule around the title
+
+\pretitle{\vspace{-30pt} \begin{flushleft} \HorRule \fontsize{20}{20} \usefont{OT1}{phv}{b}{n} \color{DarkUDC} \selectfont} % Horizontal rule before the title
+
+\title{INFORME DE PRÁCTICAS} % Your article title
+
+\posttitle{\par\end{flushleft}\vskip 0.5em} % Whitespace under the title
+
+\preauthor{\begin{flushleft}\large \lineskip 0.5em \usefont{OT1}{phv}{b}{sl} \color{DarkUDC}} % Author font configuration
+
+\author{Repositorio de proxecto: URL \\
+        Participantes no proxecto: ESTUDANTES}
+
+\postauthor{\footnotesize \usefont{OT1}{phv}{m}{sl} \color{Black} % Configuration for the institution name
+\par\end{flushleft}\HorRule} % Horizontal rule after the title
+
+\date{\sffamily Validación e Verificación de Software} % Add a date here if you would like one to appear underneath the title block
+
+%----------------------------------------------------------------------------------------
+
+\usepackage{graphicx}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,
+            allcolors=UDC}
+
+\usepackage{array}
+\usepackage{colortbl}
+
+%----------------------------------------------------------------------------------------
+
+\newcommand{\hint}[1]{\begin{quote}\itshape #1 \end{quote}}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle % Print the title
+\thispagestyle{fancy} % Enabling the custom headers/footers for the first page 
+\clearpage
+
+%----------------------------------------------------------------------------------------
+%	ARTICLE CONTENTS
+%----------------------------------------------------------------------------------------
+
+\section{Descrición do proxecto}
+
+\hint{Breve descrición do proxecto software.}
+
+\section{Estado actual}
+
+\hint{Listaxe de funcionalidades, as súas especificacións, as persoas
+  responsables do seu desenvolvemento, e as persoas responsables do proceso de
+  proba.}
+
+\subsection{Compoñentes avaliados}
+
+\hint{Para cada compoñente: funcionalidades nas que participa, número
+  de probas obxectivo, número de probas preparadas, porcentaxe
+  executada e porcentaxe superada. Se esta información é profusa e se
+  almacena noutra fonte, referencia á fonte. Se é cambiante,
+  referencia a unha \emph{shapshot} ou resumo do mais destacado.}
+
+\section{Especificación de probas}
+
+\hint{Aquí se listarán as probas a realizar para cada compoñente
+  (descrición de escenarios, entradas utilizadas e saídas desexadas,
+  ferramentas de proba utilizadas, criterio de
+  éxito/suspensión/abandono\dots). }
+
+\section{Rexisto de probas}
+
+\hint{Notas relevantes sobre o proceso de probas realizado até o momento,
+  especialmente causas de atrasos, etc. Se esta información é profusa e se
+  almacena noutra fonte, referencia á fonte. Se é cambiante, referencia a unha
+  \emph{shapshot} ou resumo do mais destacado.}
+
+\section{Rexistro de erros}
+
+\hint{Notas relevantes sobre as probas realizadas que revelaron incumprimentos
+  das especificacións. Se esta información é profusa e se almacena noutra fonte,
+  referencia á fonte. Se é cambiante, referencia a unha \emph{shapshot} ou
+  resumo do mais destacado.}
+
+\section{Estatísticas}
+
+\hint{Deben incluírse como mínimo:
+  \begin{itemize}
+    \item Número de erros encontrados diariamente e semanalmente.
+    \item Nivel de progreso na execución das probas.
+    \item Análise do perfil de detección de erros (lugares, compoñentes, tipoloxía).
+    \item Informe de erros abertos e pechados por nivel de criticidade.
+    \item Avaliación global do estado de calidade e estabilidade actuais.
+  \end{itemize}}
+
+\section{Outros aspectos de interese}
+
+\hint{Neste apartado se incluirán todos aqueles aspectos e detalles que non se
+  mencionaran nos puntos anteriores, pero que o equipo do proxecto considere que
+  poden aportar valor.}
+
+\end{document}
