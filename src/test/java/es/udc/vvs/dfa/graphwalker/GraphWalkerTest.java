@@ -59,9 +59,9 @@ public class GraphWalkerTest extends ExecutionContext implements VVS{
 	@Test
     public void runStabilityTest() {
         
-        new TestBuilder()
+        /*new TestBuilder()
             .addModel(MODEL_PATH,new RandomPath(new TimeDuration(15, TimeUnit.SECONDS)))
-            .execute();
+            .execute();*/
     }
 
 }
