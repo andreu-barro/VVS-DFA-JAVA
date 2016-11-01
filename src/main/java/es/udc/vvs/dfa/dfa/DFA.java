@@ -82,10 +82,10 @@ public class DFA {
                 }
             }
         }
-        if (visitedStates!=null) {
-            return visitedStates;    
-        }
-        else return null;
+        //if (visitedStates!=null) {
+          //return visitedStates;    
+        ///}else return null;
+        return visitedStates;
     }
 
     /**
