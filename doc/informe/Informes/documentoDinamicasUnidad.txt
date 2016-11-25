@@ -1,0 +1,70 @@
+ESTRUCTURA DEL DOCUMENTO:
+
+-Código identificativo
+-Unidad o módulo al que afecta
+-Función/método que afecta
+-Motivación (valores frontera, diagrama de estados, ...)
+-Entrada proporcionada
+-Salida esperada
+-Contexto (de ser necesario)
+
+
+*****************************************************************
+
+	MÓDULO DFA
+	
+*****************************************************************
+	
+ID: CrearDFA
+FUNCIÓN: DFA
+ENTRADA PROPORCIONADA:
+		null, mockAlphabet, mockState, 
+                mockGenList, mockGenList
+SALIDA ESPERADA: NULLPOINTEREXCEPTION
+	
+-----------------------------------------------------------------
+
+ID: CrearDFA2
+FUNCIÓN: DFA
+ENTRADA PROPORCIONADA:
+		mockGenList, null, mockState, 
+                mockGenList, mockGenList
+SALIDA ESPERADA: NULLPOINTEREXCEPTION
+	
+-----------------------------------------------------------------
+
+ID: getConnectedDFA
+FUNCIÓN: getConnectedDFA
+ENTRADA PROPORCIONADA:
+		-
+SALIDA ESPERADA: NULLPOINTEREXCEPTION
+	
+*****************************************************************
+
+	MÓDULO TRANSITION
+	
+*****************************************************************
+	
+ID: CrearTransition
+FUNCIÓN: Transition
+ENTRADA PROPORCIONADA:
+		mockState, mockState, null
+SALIDA ESPERADA: NULLPOINTEREXCEPTION
+	
+-----------------------------------------------------------------
+
+ID: CrearTransition2
+FUNCIÓN: Transition
+ENTRADA PROPORCIONADA:
+		null, mockState, null
+SALIDA ESPERADA: NULLPOINTEREXCEPTION
+	
+-----------------------------------------------------------------
+
+ID: CrearTransition3
+FUNCIÓN: Transition
+ENTRADA PROPORCIONADA:
+		mockState, null, null
+SALIDA ESPERADA: NULLPOINTEREXCEPTION
+	
+-----------------------------------------------------------------

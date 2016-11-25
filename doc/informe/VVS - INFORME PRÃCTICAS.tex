@@ -167,10 +167,27 @@ Los genera en target/site/Index.html, ahí navegamos a project reports. \\
 
 \section{Especificación de probas}
 
-\hint{Aquí se listarán as probas a realizar para cada compoñente
-  (descrición de escenarios, entradas utilizadas e saídas desexadas,
-  ferramentas de proba utilizadas, criterio de
-  éxito/suspensión/abandono\dots). }
+\subsection{Pruebas de unidad}
+\href{Informes/documentoUnidad.txt}{Pruebas de unidad} \\
+
+\subsection{Pruebas basadas en propiedades}
+\href{Informes/documentoPropiedades.txt}{Pruebas basadas en propiedades} \\
+
+\subsection{Validación de calidad de las pruebas}
+\href{http://cobertura.sourceforge.net/}{Cobertura})
+\href{http://pitest.org/}{Mutation Testing: PIT})
+
+\subsection{Pruebas dinámicas de unidad}
+\href{Informes/documentoDinamicasUnidad.txt}{Pruebas dinámicas de unidad} \\
+
+\subsection{Pruebas no funcionales}
+Hemos probado todas los métodos de todos las clases que tenemos (Alphabet, DFA, GenList, State, Symbol y Transition) \\
+
+Nos hemos ayudado de JETM y el modelo que hemos utilizado es este: 
+\href{Informes/documentoRendimiento.txt}{Pruebas no funcionales} \\
+
+\subsection{Pruebas estructurales}
+\href{http://checkstyle.sourceforge.net/}{CheckStyle})
 
 	\section{Registro de pruebas}
 	\subsection{Pruebas unidad: JUnit}
@@ -199,11 +216,13 @@ Los genera en target/site/Index.html, ahí navegamos a project reports. \\
 	
 	\subsection{Pruebas dinámicas de unidad: Mockito}
 	Para poder crear un buen conjunto de pruebas unitarias, es necasario que nos centremos exclusivamente en la clase a testear, simulando el funcionamiento de las capas inferiores (pensad por ejemplo en olvidarnos de la capa de acceso a datos, DAO). De esta manera estaremos creando test unitarios potentes que os permitiría detectar y solucionar los errores que tengáis o que se cometan durante el futuro del desarrollo de vuestra aplicación.
-	Para esta tarea nos apoyaremos en el uso de mock objects, que no son más que objetos que simulan parte del comportamiento de una clase, y más especificamente vamos a ver una herramienta que permite generar mock objects dinámicos, mockito.
+	Para esta tarea nos apoyaremos en el uso de mock objects, que no son más que objetos que simulan parte del comportamiento de una clase, y más especificamente vamos a ver una herramienta que permite generar mock objects dinámicos, mockito. \\
 	
-	Pruebas que se realizarán en el paquete es.udc.fic.vvs.spoticopy.mockito, sólo se realizarán las pruebas del servidor, debido a que las pruebas de componentes ya son pruebas de unidad.
+	Pruebas que se realizarán en el paquete es.udc.vvs.dfa.mockito, sólo se realizarán las pruebas del servidor, debido a que las pruebas de componentes ya son pruebas de unidad.
 	\subsection{Pruebas no funcionales: JETM}
-	JETM permite realizar pruebas de rendimiento y comprobar la velocidad de ejecuciones al implementar unas pruebas con n iteraciones. Se pueden generar test con múltiples iteraciones para detectar problemas de rendimiento.
+	JETM permite realizar pruebas de rendimiento y comprobar la velocidad de ejecuciones al implementar unas pruebas con n iteraciones. Se pueden generar test con múltiples iteraciones para detectar problemas de rendimiento. \\
+	
+	Pruebas que se realizarán en el paquete es.udc.vvs.dfa.rendimiento
 	\subsection{Validación de calidad de las pruebas (mutación testing): PIT}
 	
 	El  método que utilizaban en el sistema para realizar estas mediciones lo denominaba “Programa mutado”.

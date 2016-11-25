@@ -1,0 +1,19 @@
+
+El objetivo de estas pruebas es comprobar el rendimiento de todas nuestras funciones de la aplicación.
+Para ello las vamos a ejecutar un número de veces (itNumber) y comprobar que tiempos obtenemos con la ayuda de JETM.
+
+public final void NombreFuncionRendimientoTest() {
+        List<X> testElements = new ArrayList<X>();
+        for (int i = 0; i < itNumber; i++) {
+            testElements.add(new X());
+        }
+
+        EtmPoint point = etmMonitor
+                .createPoint("XRendimientoTest:nombreFuncion");
+
+        for (X a : testElements) {
+            a.nombreFuncion(parametrosQueNecesite);
+        }
+
+        point.collect();
+    }
