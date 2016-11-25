@@ -127,7 +127,7 @@ public class GenList<T> {
      */
     public Object[] getArray() {
         // we should not reference private mutable objects to the outside.
-        return list;
+        return this.list;
     }
 
     /**
