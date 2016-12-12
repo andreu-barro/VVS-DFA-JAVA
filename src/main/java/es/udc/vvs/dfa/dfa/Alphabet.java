@@ -23,7 +23,7 @@ public class Alphabet {
      * Construnctor con parámetros.
      * @param n tamaño de la lista
      * */
-    public Alphabet(int n) {
+    public Alphabet(final int n) {
         alphabet = new GenList<Symbol>(n);
     }
 
@@ -31,7 +31,7 @@ public class Alphabet {
      * Añadimos simbolos nuevos al alfabeto.
      * @param symbol añade simbolo
      * */
-    public void addNewSymbol(Symbol symbol) {
+    public void addNewSymbol(final Symbol symbol) {
         alphabet.add(symbol);
     }
 
@@ -42,21 +42,24 @@ public class Alphabet {
      * @param symbol comprueba si existe el simbolo
      * @return an equal T object from the GenList.
      */
-    public Symbol getExistingObject(Symbol symbol) {
-        if (alphabet.getExistingObject(symbol)!=null) {
-        return alphabet.getExistingObject(symbol);
+    public Symbol getExistingObject(final Symbol symbol) {
+        if (alphabet.getExistingObject(symbol) != null) {
+        	return alphabet.getExistingObject(symbol);
+        } else { 
+        	return null;
         }
-        else return null;
+        //}
     }
 
     /**
      * @return lista de simbolos
      * */
     public GenList<Symbol> getAlphabet() {
-        if (alphabet!=null) {
-        return alphabet;
+        if (alphabet != null) {
+        	return alphabet;
+        } else {
+        	return null;
         }
-        else return null;
     }
 
     @Override
