@@ -301,15 +301,18 @@ Nos hemos ayudado de JETM y el modelo que hemos utilizado es este:
 	\href{Informes/pit-reports/index.html}{Informe PIT} \\
 	
 	\subsection{Pruebas estructurales: CheckStyle}
-	Podemos comprobar los herrores encontrados en el siguiente informe: \href{Informes/SiteTestInicial/checkstyle.html}{Informe CheckStyle} \\
-	Al pasar la herramienta de CheckStyle descubrimos que nuestra aplicación tiene muchos errores de estilo, es decir, que no cumple el estandar de programación java.
+%	Podemos comprobar los errores encontrados en el siguiente informe: \href{Informes/SiteTestInicial/checkstyle.html}{Informe CheckStyle} \\
+	Al pasar la herramienta de CheckStyle descubrimos que nuestra aplicación tiene muchos errores de estilo, es decir, que no cumple el estándar de programación java.
 	
 	Resumen de errores encontrados:
 	\begin{itemize}
 		\item Faltan comentarios: En la mayoría de clases faltan comentarios javadoc. Se añaden.
 		\item Mala indexación código y espacios: Se reestructura el código para que solventar dichos errores.
 	\end{itemize}
-	
+	\includegraphics[width=15cm]{Imagenes/erroresCheckStyle.png} \\
+	\includegraphics[width=15cm]{Imagenes/checkStyleErrores.png} \\
+	Después de revisar los errores encontrados, resolvemos los errores de estilo encontrados y este es el resultado:
+	  \href{Informes/checkStyle-report/checkstyle.html}{Informe CheckStyle} \\
 
 	%		\includegraphics[width=15cm]{Imagenes/CheckStyleResut.png} \\
 	\subsection{Pruebas estáticas/estructurales: FindBugs}
