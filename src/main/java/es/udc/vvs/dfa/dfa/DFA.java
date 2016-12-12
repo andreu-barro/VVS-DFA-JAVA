@@ -41,8 +41,8 @@ public class DFA {
      * @param finalStates estados finales
      * @param transitions transiciones
      * */
-    public DFA(GenList<State> states, Alphabet alphabet, State initialState,
-            GenList<State> finalStates, GenList<Transition> transitions) {
+    public DFA(final GenList<State> states, final Alphabet alphabet, final State initialState,
+           final GenList<State> finalStates, final GenList<Transition> transitions) {
         this.states = states;
         this.alphabet = alphabet;
         this.initialState = initialState;
@@ -74,7 +74,8 @@ public class DFA {
             statesQueue[head++] = null; // let the GC free unused queue space
             for (Symbol symbol: alphabetList) {
                 t = new Transition(currentState, null, symbol);
-                if ((rTransition = transitions.getExistingObject(t)) != null) {
+                rTransition = transitions.getExistingObject(t);
+                if (rTransition != null) {
                     if (visitedStates.getExistingObject(rTransition.getEndState()) == null) {
                         visitedStates.add(rTransition.getEndState());
                         statesQueue[++tail] = rTransition.getEndState();
