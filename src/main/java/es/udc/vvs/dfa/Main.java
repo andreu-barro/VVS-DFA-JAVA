@@ -9,7 +9,6 @@ import es.udc.vvs.dfa.util.GenList;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
@@ -21,6 +20,8 @@ import es.udc.vvs.dfa.excepciones.MalformedDFAException;
  */
 public class Main {
 
+//	final static String fp = "";
+//	final static String afd = "";
     /**
      * Gets the first line of a file (\n terminated text) to read the DFA string
      * codification.
@@ -28,18 +29,18 @@ public class Main {
      * @return The text which represents the DFA from the input file.
      * @throws IOException excepcion
      */
-    private static String getStringAutomataFromFile(String filePath)
+    private static String getStringAutomataFromFile(final String filePath)
             throws IOException {
-        String fp = filePath;
-        String afd;
+      final String fp = filePath;
+      final String afd;
 //prueba de deteccion
 //        try (BufferedReader br
   //              = new BufferedReader(new FileReader(fp))) {
     //        afd = br.readLine();
       //  }
 
-      try(  BufferedReader br = new BufferedReader(
-    		  new InputStreamReader(new FileInputStream(fp),""))){
+      try (BufferedReader br = new BufferedReader(
+    		  new InputStreamReader(new FileInputStream(fp),""))) {
         afd = br.readLine();
       }
         return afd;
@@ -47,14 +48,16 @@ public class Main {
 
     /**
      * Converts a DFA as a String into an actual DFA object.
-     * @param dfa String DFA representation
+     * @param dfa2 String DFA representation
      * @return An actual DFA object
      * @throws MalformedDFAException excepcion
      */
-    private static DFA parseDFA(String dfa) throws MalformedDFAException {
+    private static DFA parseDFA(final String dfa2) throws MalformedDFAException {
 
         String currentParsing;
 
+        String dfa = dfa2;
+        
         // Q
         currentParsing = dfa.substring(0, dfa.indexOf(";"));
         String[] split = currentParsing.split(" ");
@@ -117,7 +120,7 @@ public class Main {
      * @param args the command line arguments (DFA codification / file path)
      * @throws MalformedDFAException excepcion
      */
-    public static void main(String[] args) throws MalformedDFAException {
+    public static void main(final String[] args) throws MalformedDFAException {
         String dfaString = null, output = null;
         DFA inputDFA, outputDFA;
 
