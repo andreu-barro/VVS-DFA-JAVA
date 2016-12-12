@@ -35,9 +35,10 @@ public class GenList<T> {
      * Constructor.
      * @param buffer 
      * */
-    public GenList(int buffer) {
-        if (buffer >= 0)
+    public GenList(final int buffer) {
+        if (buffer >= 0) {
             this.buffer = buffer;
+        }
     }
 
     /**
@@ -63,7 +64,7 @@ public class GenList<T> {
      *
      * @param obj anadir objeto
      */
-    public void add(T obj) {
+    public void add(final T obj) {
         pointer++;
         if (pointer == size) {
             size += buffer;
@@ -84,7 +85,7 @@ public class GenList<T> {
      * @param n the nth position (0-based)
      * @exception NullPointerException
      */
-    public void remove(int n) {
+    public void remove(final int n) {
         
         if (n >= size) { 
         	throw new NullPointerException();
@@ -116,7 +117,7 @@ public class GenList<T> {
      * @param n the nth position (0-based)
      * @return T object
      */
-    public T get(int n) {
+    public T get(final int n) {
         return (T) list[n];
     }
 
@@ -145,7 +146,7 @@ public class GenList<T> {
      *
      * Do not forget to override equals/hashCode methods of the T class.
      */
-    public T getExistingObject(T obj) {
+    public T getExistingObject(final T obj) {
         for (int i = 0; i <= pointer; i++) {
             if (((T) list[i]).equals(obj)) {
                 return ((T) list[i]);

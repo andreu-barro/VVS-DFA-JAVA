@@ -17,7 +17,7 @@ public class State {
      * Constructor.
      * @param state Estado
      */
-    public State(String state) {
+    public State(final String state) {
         this.state = state;
     }
 
@@ -26,15 +26,17 @@ public class State {
      * @return estado
      */
     public String getState() {
-        if (state!=null) {
-        return state;
+        if (state != null) {
+        	return state;
+        } else {
+        	return null;
         }
-        else return null;
     }
 
     @Override
     public String toString() {
-        return state;//.toString();
+        return state;
+        //.toString();
     }
 
     @Override
@@ -45,7 +47,7 @@ public class State {
     }
 
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(final Object obj) {
         if (this == obj) {
             return true;
         }

@@ -17,7 +17,7 @@ public class Symbol {
 	 * Constructor.
 	 * @param symbol simbolo
 	 */
-    public Symbol(String symbol) {
+    public Symbol(final String symbol) {
         this.symbol = symbol;
     }
 
@@ -26,10 +26,11 @@ public class Symbol {
 	 * @return devuelve el simbolo
 	 */
     public String getSymbol() {
-        if (symbol!=null) {
-        return symbol;
+        if (symbol != null) {
+        	return symbol;
+        } else {
+        	return null;
         }
-        else return null;
     }
 
     @Override
@@ -40,7 +41,7 @@ public class Symbol {
     }
 
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(final Object obj) {
         if (this == obj) {
             return true;
         }
@@ -58,7 +59,8 @@ public class Symbol {
 
     @Override
     public String toString() {
-        return symbol;//.toString();
+        return symbol;
+        //.toString();
     }
 
 

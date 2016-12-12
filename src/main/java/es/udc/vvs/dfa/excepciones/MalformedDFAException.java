@@ -12,7 +12,7 @@ public class MalformedDFAException extends Exception {
 	 * Mensaje de excepcion.
 	 * @param message mensaje de error
 	 * */
-    public MalformedDFAException(String message) {
+    public MalformedDFAException(final String message) {
         super(message);
     }
 

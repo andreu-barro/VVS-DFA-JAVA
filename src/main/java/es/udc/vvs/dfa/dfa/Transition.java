@@ -27,7 +27,7 @@ public class Transition {
 	 * @param endState estado final
 	 * @param symbol Simbolo
 	 */
-    public Transition(State startState, State endState, Symbol symbol) {
+    public Transition(final State startState, final State endState, final Symbol symbol) {
         this.startState = startState;
         this.endState = endState;
         this.symbol = symbol;
@@ -38,30 +38,33 @@ public class Transition {
      * @return State
      */
     public State getStartState() {
-        if (startState!=null) {
+        if (startState != null) {
             return startState;
+        } else {
+        	return null;
         }
-        else return null;
     }
     /**
      * Devuelve el estado final.
      * @return State
      */
     public State getEndState() {
-        if (endState!=null) {
-        return endState;
+        if (endState != null) {
+        	return endState;
+        } else {
+        	return null;
         }
-        else return null;
     }
     /**
      * Devuelve el simbolo.
      * @return Symbol
      */
     public Symbol getSymbol() {
-        if (symbol!=null) {
-        return symbol;
+        if (symbol != null) {
+        	return symbol;
+        } else {
+        	return null;
         }
-        else return null;
     }
 
     @Override
@@ -73,7 +76,7 @@ public class Transition {
     }
 
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(final Object obj) {
 
         if (this == obj) {
             return true;
