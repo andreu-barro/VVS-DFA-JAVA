@@ -11,13 +11,13 @@
 
 *****************************************************************
 
-	MÓDULO SYMBOL
-	
+	PRUEBAS UNITARIAS PARA EL MÓDULO SYMBOL
 *****************************************************************
 	
 ID: JAVA-SYM-CONST-01
 FUNCIÓN: Symbol
 TIPO: Valor de frontera en entrada
+HERRAMIENTA: junit
 CONTEXTO: n/a
 ENTRADA PROPORCIONADA:
 	symbol -> NULL
@@ -28,6 +28,7 @@ SALIDA ESPERADA: NULLPOINTEREXCEPTION
 ID: JAVA-SYM-HASH-01
 FUNCIÓN: hashCode
 TIPO: Particiones equivalentes
+HERRAMIENTA: junit
 CONTEXTO: n/a
 ENTRADA PROPORCIONADA:
 	Se llama dos veces con objetos iguales
@@ -38,6 +39,7 @@ SALIDA ESPERADA: El mismo hashcode para ambos
 ID: JAVA-SYM-EQ-01
 FUNCIÓN: equals
 TIPO: Particiones equivalentes
+HERRAMIENTA: junit
 CONTEXTO: n/a
 ENTRADA PROPORCIONADA: this es igual que other
 SALIDA ESPERADA: true
@@ -47,9 +49,20 @@ SALIDA ESPERADA: true
 ID: JAVA-SYM-EQ-02
 FUNCIÓN: equals
 TIPO: Particiones equivalentes
+HERRAMIENTA: junit
 CONTEXTO: n/a
 ENTRADA PROPORCIONADA: this es distinto a other
 SALIDA ESPERADA: false
+
+-----------------------------------------------------------------
+ID: JAVA-SYM-EQ-03
+FUNCIÓN: newSymbol
+TIPO: Particiones equivalentes
+HERRAMIENTA: QuickCheck (generación de datos aleatoria)
+CONTEXTO: n/a
+ENTRADA PROPORCIONADA:
+	secuencia -> Una secuencia válida
+SALIDA ESPERADA: Un símbolo válido, representado por la cadena
 	
 *****************************************************************
 
@@ -60,6 +73,7 @@ SALIDA ESPERADA: false
 ID: JAVA-GLIST-CONST-01
 FUNCIÓN: GenList
 TIPO: Particiones equivalentes
+HERRAMIENTA: junit
 CONTEXTO: n/a
 ENTRADA PROPORCIONADA: buffer < 0
 SALIDA ESPERADA: Lista vacía de tamaño mínimo predeterminado
@@ -69,6 +83,7 @@ SALIDA ESPERADA: Lista vacía de tamaño mínimo predeterminado
 ID: JAVA-GLIST-CONST-02
 FUNCIÓN: GenList
 TIPO: Particiones equivalentes
+HERRAMIENTA: junit
 CONTEXTO: n/a
 ENTRADA PROPORCIONADA: buffer vacio
 SALIDA ESPERADA: Lista vacía de tamaño mínimo predeterminado
@@ -78,6 +93,7 @@ SALIDA ESPERADA: Lista vacía de tamaño mínimo predeterminado
 ID: JAVA-GLIST-CONST-03
 FUNCIÓN: GenList
 TIPO: Particiones equivalentes
+HERRAMIENTA: junit
 CONTEXTO: n/a
 ENTRADA PROPORCIONADA: buffer > 1
 SALIDA ESPERADA: Lista vacía del tamaño de la entrada
@@ -87,6 +103,7 @@ SALIDA ESPERADA: Lista vacía del tamaño de la entrada
 ID: JAVA-GLIST-ADD-01
 FUNCIÓN: add
 TIPO: Valores frontera en entrada
+HERRAMIENTA: junit
 CONTEXTO: n/a
 ENTRADA PROPORCIONADA:
 	lista vacia
@@ -98,6 +115,7 @@ SALIDA ESPERADA: lista con 1 elemento y tamaño 1
 ID: JAVA-GLIST-ADD-02
 FUNCIÓN: add
 TIPO: Valores frontera en entrada
+HERRAMIENTA: junit
 CONTEXTO: n/a
 ENTRADA PROPORCIONADA:
 	this es lista con num_elementos == buffer
@@ -109,6 +127,7 @@ SALIDA ESPERADA: lista con 1 elemento mas y tamaño +1
 ID: JAVA-GLIST-ADD-03
 FUNCIÓN: add
 TIPO: Particiones equivalentes
+HERRAMIENTA: junit
 CONTEXTO: n/a
 ENTRADA PROPORCIONADA:
 	this es lista con num_elementos < buffer
@@ -120,6 +139,7 @@ SALIDA ESPERADA: lista con 1 elemento mas y tamaño +1
 ID: JAVA-GLIST-ADD-04
 FUNCIÓN: add
 TIPO: Valores frontera en entrada
+HERRAMIENTA: junit
 CONTEXTO: n/a
 ENTRADA PROPORCIONADA:
 	this es lista válida
@@ -131,6 +151,7 @@ SALIDA ESPERADA: la misma lista que entró
 ID: JAVA-GLIST-REM-01
 FUNCIÓN: remove
 TIPO: Valores frontera en entrada
+HERRAMIENTA: junit
 CONTEXTO: n/a
 ENTRADA PROPORCIONADA:
 	this es lista válida
@@ -142,6 +163,7 @@ SALIDA ESPERADA: error
 ID: JAVA-GLIST-REM-02
 FUNCIÓN: remove
 TIPO: Valores frontera en entrada
+HERRAMIENTA: junit
 CONTEXTO: n/a
 ENTRADA PROPORCIONADA:
 	this -> NULL
@@ -153,6 +175,7 @@ SALIDA ESPERADA: error
 ID: JAVA-GLIST-REM-03
 FUNCIÓN: remove
 TIPO: Particiones equivalentes
+HERRAMIENTA: junit
 CONTEXTO: n/a
 ENTRADA PROPORCIONADA:
 	this es lista válida
@@ -164,6 +187,7 @@ SALIDA ESPERADA: la lista sin el elemento correspondiente
 ID: JAVA-GLIST-ELEM-01
 FUNCIÓN: get
 TIPO: Valores frontera en entrada
+HERRAMIENTA: junit
 CONTEXTO: n/a
 ENTRADA PROPORCIONADA:
 	lista válida
@@ -175,6 +199,7 @@ SALIDA ESPERADA: la aplicación no crashea
 ID: JAVA-GLIST-ELEM-02
 FUNCIÓN: get
 TIPO: Particiones equivalentes
+HERRAMIENTA: junit
 CONTEXTO: n/a
 ENTRADA PROPORCIONADA:
 	lista válida
@@ -186,6 +211,7 @@ SALIDA ESPERADA: el elemento en la posición indicada
 ID: JAVA-GLIST-EXOB-01
 FUNCIÓN: getExistingObject
 TIPO: Valores frontera en entrada
+HERRAMIENTA: junit
 CONTEXTO: n/a
 ENTRADA PROPORCIONADA:
 	lista valida
@@ -198,6 +224,7 @@ ID: JAVA-GLIST-EXOB-02
 FUNCIÓN: getExistingObject
 TIPO: Valores frontera en entrada
 CONTEXTO: n/a
+HERRAMIENTA: junit
 ENTRADA PROPORCIONADA:
 	lista válida
 	elemento no está
@@ -209,10 +236,22 @@ ID: JAVA-GLIST-EXOB-03
 FUNCIÓN: getExistingObject
 TIPO: Valores frontera en entrada
 CONTEXTO: n/a
+HERRAMIENTA: junit
 ENTRADA PROPORCIONADA:
 	lista vacia
 	elemento cualquiera
 SALIDA ESPERADA: NULL
+
+
+----------------------------------------------------------------
+ID: JAVA-GLIST-NEW-04
+FUNCIÓN: newGenList
+TIPO: Particiones equivalentes
+HERRAMIENTA: QuickCheck (generación aleatoria de datos)
+CONTEXTO: n/a
+ENTRADA PROPORCIONADA: buffer > 0
+SALIDA ESPERADA: buffer es el indicado y size es 0
+
 
 *****************************************************************
 
@@ -234,6 +273,7 @@ de las ya realizadas en GenList.
 ID: JAVA-ST-CONST-01
 FUNCIÓN: State
 TIPO: Valor de frontera en entrada
+HERRAMIENTA: junit
 CONTEXTO: n/a
 ENTRADA PROPORCIONADA:
 	state -> NULL
@@ -244,6 +284,7 @@ SALIDA ESPERADA: NULL
 ID: JAVA-ST-HASH-01
 FUNCIÓN: hashCode
 TIPO: Particiones equivalentes
+HERRAMIENTA: junit
 CONTEXTO: n/a
 ENTRADA PROPORCIONADA:
 	Dos objetos iguales
@@ -254,6 +295,7 @@ SALIDA ESPERADA: El mismo hashCode
 ID: JAVA-ST-EQ-01
 FUNCIÓN: equals
 TIPO: Particiones equivalentes
+HERRAMIENTA: junit
 CONTEXTO: n/a
 ENTRADA PROPORCIONADA: this es igual que other
 SALIDA ESPERADA: true
@@ -263,6 +305,7 @@ SALIDA ESPERADA: true
 ID: JAVA-ST-EQ-02
 FUNCIÓN: equals
 TIPO: Particiones equivalentes
+HERRAMIENTA: junit
 CONTEXTO: n/a
 ENTRADA PROPORCIONADA: this es distinto a other
 SALIDA ESPERADA: false
@@ -276,6 +319,7 @@ SALIDA ESPERADA: false
 ID: JAVA-TRANS-CONST-01
 FUNCIÓN: Transition
 TIPO: Valor de frontera en entrada
+HERRAMIENTA: junit
 CONTEXTO: n/a
 ENTRADA PROPORCIONADA:
 	symbol -> NULL
@@ -288,6 +332,7 @@ SALIDA ESPERADA: NULL
 ID: JAVA-TRANS-CONST-02
 FUNCIÓN: Transition
 TIPO: Valor de frontera en entrada
+HERRAMIENTA: junit
 CONTEXTO: n/a
 ENTRADA PROPORCIONADA:
 	symbol es válido
@@ -300,6 +345,7 @@ SALIDA ESPERADA: NULL
 ID: JAVA-TRANS-CONST-03
 FUNCIÓN: Transition
 TIPO: Valor de frontera en entrada
+HERRAMIENTA: junit
 CONTEXTO: n/a
 ENTRADA PROPORCIONADA:
 	symbol es válido
@@ -312,6 +358,7 @@ SALIDA ESPERADA: NULL
 ID: JAVA-TRANS-HASH-01
 FUNCIÓN: hashCode
 TIPO: Valor de frontera en entrada
+HERRAMIENTA: junit
 CONTEXTO: n/a
 ENTRADA PROPORCIONADA:
 	this -> NULL
@@ -322,6 +369,7 @@ SALIDA ESPERADA: 0
 ID: JAVA-TRANS-EQ-01
 FUNCIÓN: equals
 TIPO: Particiones equivalentes
+HERRAMIENTA: junit
 CONTEXTO: n/a
 ENTRADA PROPORCIONADA: this es igual que other
 SALIDA ESPERADA: true
@@ -331,6 +379,7 @@ SALIDA ESPERADA: true
 ID: JAVA-TRANS-EQ-02
 FUNCIÓN: equals
 TIPO: Particiones equivalentes
+HERRAMIENTA: junit
 CONTEXTO: n/a
 ENTRADA PROPORCIONADA: this es distinto a other
 SALIDA ESPERADA: false
@@ -430,10 +479,11 @@ SALIDA ESPERADA: DFA simplificado
 -----------------------------------------------------------------
 
 /********/
-
 PRUEBA ESTÁTICA CAJA BLANCA
+/********/
 ID: JAVA-ESTATICA-CAJA-BLANCA
 FUNCION: REVISION DE TODO EL CÓDIGO PARA COMPROBAR QUE SIGUE EL ESTANDAR DE PROGRAMACIÓN JAVA
+HERRAMIENTA: CHECKSTYLE
 TIPO: REVISION DE ESTATICA DE CAJA BLANCA
 CONTEXTO: SE UTILIZARÁ LA HERRAMIENTA DE CHECKSTYLE PARA REVISAR EL CÓDIGO Y QUE SIGUE EL ESTANDAR DE PROGRAMACIÓN JAVA
 ENTRADA PROPORCIONADA: EL CÓDIGO
@@ -442,9 +492,11 @@ SALIDA ESPERADA: INFORME DE LOS ERRORES DE ESTILO ENCONTRADOS
 
 /*****/
 PRUEBA ESTÁTICA DE ANÁLISIS DE CÓDIGO PARA ENCONTRAR BUGS
+/****/
 ID: JAVA-STATICA-FIND-BUGS
 FUNCIÓN: REVISIÓN ESTÁTICA DEL CÓDIGO PARA ENCONTRAR BUGS DE PROGRAMACIÓN JAVA
 TIPO: REVISION ESTÁTICA
+HERRAMIENTA: FIND BUGS
 CONTEXTO: SE UTILIZARA LA HERRAMIENTA FIND BUGS PARA ENCONTRAR BUGS
 ENTRADA PROPORCIONADA: CÓDIGO
 SALIDA ESPERADA: INFORME SOBRE LOS ERRORES/BUGS ENCONTRADOS
