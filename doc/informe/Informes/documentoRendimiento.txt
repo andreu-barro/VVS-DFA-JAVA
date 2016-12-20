@@ -1,4 +1,4 @@
-
+﻿DOCUMENTO NO VALIDO PARA LA DEFINICION DE PRUEBAS --> VER DOCUMENTODEUNIDAD
 El objetivo de estas pruebas es comprobar el rendimiento de todas nuestras funciones de la aplicación.
 Para ello las vamos a ejecutar un número de veces (itNumber) y comprobar que tiempos obtenemos con la ayuda de JETM.
 
