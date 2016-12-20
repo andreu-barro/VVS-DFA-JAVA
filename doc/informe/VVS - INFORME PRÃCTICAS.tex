@@ -169,25 +169,28 @@ Los genera en target/site/Index.html, ahí navegamos a project reports. \\
 
 \subsection{Pruebas de unidad}
 \href{Informes/documentoUnidad.txt}{Pruebas de unidad} \\
+En el documento de pruebas de unidad se especifican las pruebas definidas:
+Pruebas estáticas de unidad, dinámicas de de unidad, basadas en propiedades, pruebas no funcionales, estructurales y validación de las pruebas. 
 
-\subsection{Pruebas basadas en propiedades}
-\href{Informes/documentoPropiedades.txt}{Pruebas basadas en propiedades} \\
+%\subsection{Pruebas basadas en propiedades}
+%\href{Informes/documentoPropiedades.txt}{Pruebas basadas en propiedades} \\
 
-\subsection{Validación de calidad de las pruebas}
-\href{http://cobertura.sourceforge.net/}{Cobertura})
-\href{http://pitest.org/}{Mutation Testing: PIT})
 
-\subsection{Pruebas dinámicas de unidad}
-\href{Informes/documentoDinamicasUnidad.txt}{Pruebas dinámicas de unidad} \\
+%\subsection{Validación de calidad de las pruebas}
+%\href{http://cobertura.sourceforge.net/}{Cobertura})
+%\href{http://pitest.org/}{Mutation Testing: PIT})
 
-\subsection{Pruebas no funcionales}
-Hemos probado todas los métodos de todos las clases que tenemos (Alphabet, DFA, GenList, State, Symbol y Transition) \\
+%\subsection{Pruebas dinámicas de unidad}
+%\href{Informes/documentoDinamicasUnidad.txt}{Pruebas dinámicas de unidad} \\
 
-Nos hemos ayudado de JETM y el modelo que hemos utilizado es este: 
-\href{Informes/documentoRendimiento.txt}{Pruebas no funcionales} \\
+%\subsection{Pruebas no funcionales}
+%Hemos probado todas los métodos de todos las clases que tenemos (Alphabet, DFA, GenList, State, Symbol y Transition) \\
 
-\subsection{Pruebas estructurales}
-\href{http://checkstyle.sourceforge.net/}{CheckStyle})
+%Nos hemos ayudado de JETM y el modelo que hemos utilizado es este: 
+%\href{Informes/documentoRendimiento.txt}{Pruebas no funcionales} \\
+
+%\subsection{Pruebas estructurales}
+%\href{http://checkstyle.sourceforge.net/}{CheckStyle})
 
 	\section{Registro de pruebas}
 	\subsection{Pruebas unidad: JUnit}
@@ -272,9 +275,13 @@ Nos hemos ayudado de JETM y el modelo que hemos utilizado es este:
 	\subsection{Pruebas unidad: JUnit}
 	Se puede comprobar que no fallan.
 	
+	\includegraphics[width=15cm]{Imagenes/junit.png}
+		
 	\subsection{Pruebas dinámicas de unidad: Mockito}
 	Se puede comprobar que no fallan.
 	
+	\includegraphics[width=15cm]{Imagenes/mockito.png}
+		
 	\subsection{Validación de la calidad de las pruebas: Cobertura}
 	
 	Estado inicial:
@@ -290,11 +297,12 @@ Nos hemos ayudado de JETM y el modelo que hemos utilizado es este:
 	
 	\subsection{Pruebas no funcionales: JETM}
 	Resultado del rendimiento de JETM:
-	\href{Informes/SiteTestInicial/jetm-timing-report.html}{Informe JETM} \\
+	%\href{Informes/SiteTestInicial/jetm-timing-report.html}{Informe JETM} \\
 	
-	%	\includegraphics[width=16cm]{Imagenes/JETM1.png} \\
+		\includegraphics[width=16cm]{Imagenes/JEMReport.png} \\
 	%	\includegraphics[width=16cm]{Imagenes/JETM2.png} \\
 	Con JETM hemos tenido problemas  a la hora de que nos genera el site todos los resultados de las pruebas. Sí genera los resultados guardandolos en un xml con todos los resultados, pero no los muestra en la página de resultados del site.
+ %	Consideramos que el rendimiento es bueno.
 	\subsection{Validación de calidad de las pruebas (mutación testing): PIT}
 	Realizado el mutation testing, resultados:
 	
