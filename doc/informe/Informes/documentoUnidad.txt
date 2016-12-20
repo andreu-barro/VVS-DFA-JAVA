@@ -63,6 +63,18 @@ CONTEXTO: n/a
 ENTRADA PROPORCIONADA:
 	secuencia -> Una secuencia válida
 SALIDA ESPERADA: Un símbolo válido, representado por la cadena
+
+-----------------------------------------------------------------
+ID: JAVA-SYM-EQ-04
+FUNCIÓN: getSymbol
+TIPO: Rendimiento
+HERRAMIENTA: JETM
+CONTEXTO: n/a
+ENTRADA PROPORCIONADA:
+	lista de symbolos
+SALIDA ESPERADA: informe de rendimiento
+
+-----------------------------------------------------------------
 	
 *****************************************************************
 
@@ -264,6 +276,16 @@ exclusivamente en llamar a la función equivalente de GenList y devolver
 el resultado. Por ello no se encuentran pruebas que realizar a mayores
 de las ya realizadas en GenList.
 
+
+ID: JAVA-ALPH-REN-01
+FUNCIÓN: getSymbol
+TIPO: Rendimiento
+HERRAMIENTA: JETM
+CONTEXTO: n/a
+ENTRADA PROPORCIONADA:
+	lista de alfabetos
+SALIDA ESPERADA: informe de rendimiento
+
 *****************************************************************
 
 	MÓDULO STATE
@@ -309,7 +331,17 @@ HERRAMIENTA: junit
 CONTEXTO: n/a
 ENTRADA PROPORCIONADA: this es distinto a other
 SALIDA ESPERADA: false
-	
+-----------------------------------------------------------------
+
+ID: JAVA-ST-REN-01
+FUNCIÓN: getSymbol
+TIPO: Rendimiento
+HERRAMIENTA: JETM
+CONTEXTO: n/a
+ENTRADA PROPORCIONADA:
+	CONEXIONES
+SALIDA ESPERADA: informe de rendimiento	
+
 *****************************************************************
 
 	MÓDULO TRANSITION
@@ -478,6 +510,45 @@ SALIDA ESPERADA: DFA simplificado
 
 -----------------------------------------------------------------
 
+ID: JAVA-DFA-REN-01
+FUNCIÓN: getSymbol
+TIPO: Rendimiento
+HERRAMIENTA: JETM
+CONTEXTO: n/a
+ENTRADA PROPORCIONADA:
+	CONEXIONES
+SALIDA ESPERADA: informe de rendimiento
+
+*****************************************************************
+	
+ID: CrearTransition
+FUNCIÓN: Transition
+HERRAMIENTA: mockito
+ENTRADA PROPORCIONADA:
+		mockState, mockState, null
+SALIDA ESPERADA: NULLPOINTEREXCEPTION
+	
+-----------------------------------------------------------------
+
+ID: CrearTransition2
+FUNCIÓN: Transition
+HERRAMIENTA: mockito
+ENTRADA PROPORCIONADA:
+		null, mockState, null
+SALIDA ESPERADA: NULLPOINTEREXCEPTION
+	
+-----------------------------------------------------------------
+
+ID: CrearTransition3
+FUNCIÓN: Transition
+HERRAMIENTA: mockito
+ENTRADA PROPORCIONADA:
+		mockState, null, null
+SALIDA ESPERADA: NULLPOINTEREXCEPTION
+
+
+
+---------------------------------------
 /********/
 PRUEBA ESTÁTICA CAJA BLANCA
 /********/
@@ -490,6 +561,8 @@ ENTRADA PROPORCIONADA: EL CÓDIGO
 SALIDA ESPERADA: INFORME DE LOS ERRORES DE ESTILO ENCONTRADOS 
 
 
+
+--------------------------------------
 /*****/
 PRUEBA ESTÁTICA DE ANÁLISIS DE CÓDIGO PARA ENCONTRAR BUGS
 /****/
