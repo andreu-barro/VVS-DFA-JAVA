@@ -291,7 +291,8 @@ Pruebas estáticas de unidad, dinámicas de de unidad, basadas en propiedades, p
 	
 	
 	Estado final:
-	--
+	
+	Hemos realizado aumentado las pruebas en GenList para mejorar la cobertura de las pruebas, por definición habíamos decidido no realizar pruebas sobre DFA porque considerábamos que el funcionamiento de DFA estaba incluido en GenList.
 	
 		\includegraphics[width=15cm]{Imagenes/Cobertura.png}
 	
@@ -319,6 +320,9 @@ Pruebas estáticas de unidad, dinámicas de de unidad, basadas en propiedades, p
 	\end{itemize}
 	\includegraphics[width=15cm]{Imagenes/erroresCheckStyle.png} \\
 	\includegraphics[width=15cm]{Imagenes/checkStyleErrores.png} \\
+	\includegraphics[width=15cm]{Imagenes/checkStyleErrores1.png} \\
+	\includegraphics[width=15cm]{Imagenes/statecheckstyle.png} \\
+	\includegraphics[width=15cm]{Imagenes/checkStyleErrores3.png} \\
 	Después de revisar los errores encontrados, resolvemos los errores de estilo encontrados y este es el resultado:
 	  \href{Informes/checkStyle-report/checkstyle.html}{Informe CheckStyle} \\
 
@@ -342,7 +346,7 @@ Pruebas estáticas de unidad, dinámicas de de unidad, basadas en propiedades, p
 %\hint{Deben incluírse como mínimo:
   
   	\subsection{Número de errores encontrados diariamente y semanalmente.}
-  	A medida que se iban probando herramientas se iban obteniendo de 2 a 8 errores. Con tendencia a disminuir a partir de las últimas herramientas. Sin embargo, se puede comprobar que faltan test para tener una cobertura completa de la aplicación.
+  	A medida que se iban probando herramientas se iban obteniendo de 2 a 8 errores. Con tendencia a disminuir a partir de las últimas herramientas. Sin embargo, se puede comprobar que faltan test para tener una cobertura completa de la aplicación, estámos en el 68 por ciento, sería necesario diseñar má test.
   	
   	Se puede comprobar cómo no ha variado mucho el código desde los hace un mes:
   	
@@ -354,17 +358,34 @@ Pruebas estáticas de unidad, dinámicas de de unidad, basadas en propiedades, p
   	%Número de erros atopado diariamente/semanalmente. Novamente, se fostes abrindo e xestionando issues como se vos pediu desde o principio, poderedes saber cando rexistrastes cada problema, e cando o pechastes, e facer unha representación deses momentos en función do tempo.
   		
   	\subsection{Nivel de progreso de ejecución de las pruebas}
-  	Las pruebas diseñadas a priori fueron las pruebas iniciales de unidad, mockito y quickcheck.
-  	El resto fueron pruebas que salieron como consecuencia de ejecutar las aplicaciones de pruebas y por consiguiente detectar errores que hubo que solucionar.
+  	Las pruebas diseñadas a priori fueron las pruebas iniciales de unidad, mockito y quickcheck.  	
+  	A posteriori se fueron añadiendo las pruebas obtenidas de ejecutar las herramientas de análisis estático de caja blanca (CheckStyle), Herramienta de mutación de código (PITest).
+  	
+  	Podemos comprobar que con cobertura qué está al 68 por ciento y hemos diseñado pruebas para la clase DFA para mejorar la cobertura de nuestras pruebas. En una decisión inicial habíamos pensado en que estaban contenidas dentro de GenList pero por el resultado se comprueba qué es necesario realizar pruebas de las mismas. Faltarían por ejecutar.
+
+  	
+  %	\includegraphics[width=15cm]{Imagenes/pittessissues.png} \\
+  	
   	\subsection{Análisis del perfil de detección de errores}
   	%Análise do perfil de detección de erros. Trátase de que clasifiquedes as issues que tivestes no proxecto en función do compoñente ao que afectaron e o seu tipo (repasade a transparencia que explica ¿Qué es un bug? da primeira semana de clase deste bloque). O obxectivo é determinar se houbo partes do proxecto que concentraron máis problemas ca outras.
+  	La mayoría de errores encontraros se encontraron sobre la clase GenList. Problemas con la lista de objetos y el buffer de objetos.
   	
   	\subsection{Informe de errores abiertos y cerrados}
   	%Informe de erros abertos e pechados por criticidade. Novamente trátase de que clasifiquedes os erros que deron lugar ás issues do voso proxecto en función da súa gravidade/severidade/posible impacto (é suficiente cunha gradación cualitativa: pouca - media - alta), e que fagades unha avaliación da prevalencia dos diferentes niveis no voso proxecto.
   	\subsection{Evaluación global del estado y calidad y estabilidad actual}
   	Actualmente se puede comprobar que el código es estable y las pruebas realizadas son correctas, sin embargo, eso no quiere decir de que no existan errores. 
-  	Al comprobar el informe del PIT(mutación testing) y cobertura podemos comprobar que las coberturas de las pruebas no cubren todos los casos y sería necesario realizar mas pruebas para que dicho informe mejorase.
-  	Además faltaría realizar pruebas de estrés y pruebas basadas en modelos ya que no se nos genera el informe de Grapwalker.
+  	En la definición de las pruebas decidimos no realizar pruebas sobre DFA porque considerábamos que estaban incluidas en GenList, sin embargo al validar con cobertura y con PIT(mutación testing) comprobamos que afecta negativamente a la validación de las pruebas. Se debería realizar más pruebas para una cobertura correcta del programa. Lo ideal sería obtener entre un 80 por ciento y 100 por cien de cobertura de las pruebas. 
+  	
+  	Faltaría realizar las pruebas basadas en modelos, nos da un error Grapwalker a la hora de generarlo:
+  	
+  	[INFO] --- graphwalker-maven-plugin:3.3.0:generate-sources (generate-sources) @ vvs ---
+  	SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+  	SLF4J: Defaulting to no-operation (NOP) logger implementation
+  	
+  	Otro problema es que no hemos realizado pruebas de estés a nuestro programa.
+  	
+  	Una cobertura del 68 por ciento no nos garantiza que existan bugs en el programa. Se podría considerar que consiguiendo realizar las pruebas de estrés y basadas en modelos y aumentando un poco la cobertura de las pruebas podríamos considerar que el programa está completamente validado y listo para utilizarse en algún entorno de producción.
+
    % \item Número de erros encontrados diariamente e semanalmente.
     %\item Nivel de progreso na execución das probas.
     %\item Análise do perfil de detección de erros (lugares, compoñentes, tipoloxía).
