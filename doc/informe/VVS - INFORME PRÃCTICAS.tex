@@ -346,15 +346,13 @@ Pruebas estáticas de unidad, dinámicas de de unidad, basadas en propiedades, p
 %\hint{Deben incluírse como mínimo:
   
   	\subsection{Número de errores encontrados diariamente y semanalmente.}
-  	A medida que se iban probando herramientas se iban obteniendo de 2 a 8 errores. Con tendencia a disminuir a partir de las últimas herramientas. Sin embargo, se puede comprobar que faltan test para tener una cobertura completa de la aplicación, estámos en el 68 por ciento, sería necesario diseñar má test.
+  	A partir de las pruebas unitad con la herramienta junit, el mayor número de errores encontrados son después de realizar las pruebas de análisis de caja blanca (checkstyle y findbugs) y mutación de código (PItTest). La tendencia después delpunto álgido del 29/10/2016 (observar gráfica) a ir cerrando poco a poco las incidencias abiertas. 
   	
-  	Se puede comprobar cómo no ha variado mucho el código desde los hace un mes:
+  	\includegraphics[width=15cm]{Imagenes/issues.png} \\
   	
-  	\includegraphics[width=15cm]{Imagenes/frecuenciaCodigo.png} \\
-  	
+  	Sin embargo, se puede observar que en las últimas semanas se volvieron a abrir issues debido a que se detectó que las pruebas realizadas no eran válidas según la cobertura. Por lo que se abren dos issues de herramientas y test pendientes de implementar para dar por completo por finalizado de testar la aplicación.
   	
   	%Falta añadir la grafica pro fechas de tareas creadas y cerradas
-  	Podemos comprobar la gráfica de tareas abiertas y cerradas:
   	%Número de erros atopado diariamente/semanalmente. Novamente, se fostes abrindo e xestionando issues como se vos pediu desde o principio, poderedes saber cando rexistrastes cada problema, e cando o pechastes, e facer unha representación deses momentos en función do tempo.
   		
   	\subsection{Nivel de progreso de ejecución de las pruebas}
